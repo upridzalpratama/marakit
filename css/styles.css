@@ -142,6 +142,24 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: 19px; line-height: 1
 .nav__links a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--amber); text-underline-offset: 6px; text-decoration-thickness: 2px; }
 @media (min-width: 768px) { .nav__links { display: flex; } }
 
+.nav__actions { display: flex; align-items: center; gap: 16px; }
+.lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0 8px;
+  border: 1px solid var(--sand);
+  border-radius: var(--radius-btn);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.lang:hover { border-color: var(--ink); }
+
 .brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1.1; margin: 0; }
 .brand__name { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--ink); }
 .brand__desc { font-size: 12px; color: var(--slate); }
@@ -212,7 +230,13 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: 19px; line-height: 1
 
 /* Masalah */
 .problem__num { display: block; color: var(--slate); font-size: 14px; margin-bottom: 16px; }
-.problem p, .deliv p { color: var(--slate); }
+.problem p, .pillar p { color: var(--slate); }
+
+/* Dua pilar sistem */
+.pillars { display: grid; gap: 16px; margin-top: 48px; }
+.pillar .caption { margin-bottom: 8px; }
+.pillars__note { margin-top: 16px; color: var(--slate); font-size: 15px; }
+@media (min-width: 768px) { .pillars { grid-template-columns: 1fr 1fr; gap: 24px; } }
 
 /* Solusi */
 .compare { display: grid; gap: 16px; align-items: stretch; }
@@ -239,6 +263,25 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: 19px; line-height: 1
 .note h3 { color: var(--white); }
 @media (min-width: 768px) { .note { padding: 32px; } }
 
+/* Transparansi mesin vs manusia */
+.split { display: grid; gap: 32px; border: 1px solid var(--on-dark-line); border-radius: var(--radius-card); padding: 24px; }
+.split h3 { color: var(--white); }
+.split__cols { display: grid; gap: 32px; }
+.split__col .caption { margin-bottom: 8px; }
+.tools { list-style: none; margin: 0; padding: 0; }
+.tools li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--on-dark-line); color: var(--bone); font-size: 15px; }
+.tools__tag { flex-shrink: 0; font-family: var(--mono); font-size: 12px; color: var(--on-dark-muted); }
+@media (min-width: 768px) { .split { padding: 32px; } .split__cols { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1280px) { .split { grid-template-columns: 1fr 2fr; gap: 64px; } }
+
+/* Deliverable */
+.deliv-grid { display: grid; gap: 16px; }
+.deliv-list .caption { margin-bottom: 24px; }
+.deliv-list .checklist { gap: 16px; }
+.deliv-list li { color: var(--slate); }
+.deliv-list strong { color: var(--ink); font-weight: 600; }
+@media (min-width: 1280px) { .deliv-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+
 /* Bukti */
 .case { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
 .case__visual { background: var(--bone); border-bottom: 1px solid var(--sand); height: 160px; display: flex; align-items: flex-end; justify-content: center; padding: 24px 24px 0; }
@@ -253,7 +296,8 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: 19px; line-height: 1
 .case__after { font-size: 30px; color: var(--ink); }
 @media (min-width: 768px) { .case__after { font-size: 40px; } }
 .case__body p:last-child { color: var(--slate); }
-.case__client { margin: 0; padding: 16px 24px; border-top: 1px solid var(--sand); font-weight: 600; font-size: 15px; }
+.case__client { margin: 0; padding: 16px 24px; border-top: 1px solid var(--sand); font-weight: 600; font-size: 15px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.case__tag { font-weight: 400; font-size: 13px; color: var(--slate); }
 
 .quote { margin: 40px 0 0; padding: 24px; background: var(--amber-wash); border-radius: var(--radius-card); max-width: 800px; }
 .quote p { font-family: var(--serif); font-size: 22px; line-height: 1.35; margin-bottom: 16px; }
@@ -270,10 +314,31 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: 19px; line-height: 1
 .tier--popular { border: 2px solid var(--ink); }
 .tier .checklist { margin-bottom: 32px; flex: 1; }
 .tier__for { color: var(--slate); }
-.tier__price { display: flex; flex-direction: column; margin-bottom: 4px; }
+.tier__price { display: flex; flex-direction: column; }
 .tier__from { font-size: 13px; color: var(--slate); }
 .tier__price .mono { font-size: 30px; line-height: 1.2; }
-.tier__dur { font-size: 14px; color: var(--slate); padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--sand); }
+.tier__price { padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--sand); }
+.tier__unit { font-size: 14px; color: var(--slate); }
+[data-model="run"] [data-show="build"], [data-model="build"] [data-show="run"] { display: none; }
+
+.models { display: grid; gap: 16px; margin-bottom: 32px; }
+.model {
+  display: grid;
+  gap: 4px;
+  text-align: left;
+  padding: 16px 24px;
+  background: transparent;
+  border: 1px solid var(--sand);
+  border-radius: var(--radius-card);
+  font: inherit;
+  color: var(--ink);
+  cursor: pointer;
+}
+.model:hover { border-color: var(--slate); }
+.model[aria-pressed="true"] { background: var(--white); border: 2px solid var(--ink); padding: 15px 23px; }
+.model__name { font-weight: 600; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.model__desc { font-size: 15px; color: var(--slate); }
+@media (min-width: 768px) { .models { grid-template-columns: 1fr 1fr; gap: 24px; } }
 .badge {
   align-self: flex-start;
   background: var(--amber-wash);
@@ -286,6 +351,7 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: 19px; line-height: 1
   letter-spacing: 0.08em;
   margin-bottom: 16px;
 }
+.badge--inline { margin: 0; padding: 2px 8px; font-size: 11px; background: var(--ink); color: var(--white); }
 
 /* Tentang */
 .about { display: grid; gap: 40px; align-items: center; }

@@ -11,6 +11,27 @@
     clarityId: "" // contoh: abcdefghij
   };
 
+  /* ---------- Bahasa ---------- */
+  var LANG = document.documentElement.lang === "en" ? "en" : "id";
+  var T = {
+    id: {
+      wa: "Halo Marakit, saya mau konsultasi soal sistem marketing brand saya.",
+      name: "Nama", brand: "Brand", whatsapp: "WhatsApp", omzet: "Omzet", source: "Sumber"
+    },
+    en: {
+      wa: "Hi Marakit, I'd like a consultation about my brand's marketing system.",
+      name: "Name", brand: "Brand", whatsapp: "WhatsApp", omzet: "Revenue", source: "Source"
+    }
+  }[LANG];
+
+  // Link ganti bahasa membawa UTM, supaya sumber traffic tidak hilang saat pindah halaman.
+  document.querySelectorAll("[data-lang-switch]").forEach(function (el) {
+    if (window.location.search) el.setAttribute("href", el.getAttribute("href") + window.location.search);
+    el.addEventListener("click", function () {
+      track("language_switch", { to: el.getAttribute("data-lang-switch") });
+    });
+  });
+
   /* ---------- UTM ---------- */
   var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
   var utm = {};
@@ -83,7 +104,7 @@
 
   /* ---------- WhatsApp ---------- */
   function waUrl(extra) {
-    var text = "Halo Marakit, saya mau konsultasi soal sistem marketing brand saya.";
+    var text = T.wa;
     if (extra) text += "\n\n" + extra;
     var src = utmSummary();
     if (src) text += "\n\n(" + src + ")";
@@ -134,10 +155,10 @@
   function formSummary(form) {
     var f = form.elements;
     var parts = [];
-    if (f.name.value.trim()) parts.push("Nama: " + f.name.value.trim());
-    if (f.brand.value.trim()) parts.push("Brand: " + f.brand.value.trim());
-    if (f.whatsapp.value.trim()) parts.push("WhatsApp: " + f.whatsapp.value.trim());
-    if (f.omzet.value) parts.push("Omzet: " + f.omzet.value);
+    if (f.name.value.trim()) parts.push(T.name + ": " + f.name.value.trim());
+    if (f.brand.value.trim()) parts.push(T.brand + ": " + f.brand.value.trim());
+    if (f.whatsapp.value.trim()) parts.push(T.whatsapp + ": " + f.whatsapp.value.trim());
+    if (f.omzet.value) parts.push(T.omzet + ": " + f.omzet.value);
     return parts.join("\n");
   }
 
@@ -163,7 +184,8 @@
       var f = form.elements;
       var notes = formSummary(form);
       var src = utmSummary();
-      if (src) notes += "\nSumber: " + src;
+      notes += "\nLang: " + LANG;
+      if (src) notes += "\n" + T.source + ": " + src;
 
       track("cta_click", { location: "penutup" });
       track("booking_started", { omzet: f.omzet.value });
@@ -184,6 +206,19 @@
       }
     });
   }
+
+  /* ---------- Paket: Build and run / Build only ---------- */
+  document.querySelectorAll("[data-model]").forEach(function (section) {
+    var buttons = section.querySelectorAll("[data-model-btn]");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var model = btn.getAttribute("data-model-btn");
+        section.setAttribute("data-model", model);
+        buttons.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+        track("pricing_model", { model: model });
+      });
+    });
+  });
 
   /* ---------- Scroll 75% ---------- */
   var scrolled75 = false;

@@ -5,6 +5,8 @@ import path from "node:path";
 const dir = path.dirname(fileURLToPath(import.meta.url));
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
-await page.goto("file://" + path.join(dir, "og-image.html"), { waitUntil: "networkidle" });
-await page.screenshot({ path: path.join(dir, "..", "assets", "og-image.png") });
+for (const name of ["og-image", "og-image-en"]) {
+  await page.goto("file://" + path.join(dir, name + ".html"), { waitUntil: "networkidle" });
+  await page.screenshot({ path: path.join(dir, "..", "assets", name + ".png") });
+}
 await browser.close();
