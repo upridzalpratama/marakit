@@ -228,6 +228,15 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: 19px; line-height: 1
   .stat__num { font-size: 40px; }
 }
 
+/* Logo klien */
+.logos { margin-top: 32px; }
+.logos .caption { margin-bottom: 16px; }
+.logos__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; }
+.logos__list img { height: 40px; width: auto; filter: grayscale(1); opacity: 0.75; transition: filter .2s ease, opacity .2s ease; }
+.logos__list img:hover { filter: none; opacity: 1; }
+.logos__list img.logo--tall { height: 64px; margin: -12px 0; }
+@media (min-width: 768px) { .logos__list { gap: 24px 56px; } .logos__list img { height: 48px; } .logos__list img.logo--tall { height: 76px; margin: -14px 0; } }
+
 /* Masalah */
 .problem__num { display: block; color: var(--slate); font-size: 14px; margin-bottom: 16px; }
 .problem p, .pillar p { color: var(--slate); }
@@ -436,6 +445,7 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: 19px; line-height: 1
 .footer { background: var(--ink); color: var(--on-dark-muted); padding: 48px 0; border-top: 1px solid var(--on-dark-line); }
 .footer__grid { display: grid; gap: 32px; }
 .footer__tag { margin-top: 16px; font-size: 15px; }
+.footer__note { margin-top: 4px; font-size: 13px; }
 .footer__links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 16px 32px; }
 .footer__links a { color: var(--bone); text-decoration: none; font-size: 15px; }
 .footer__links a:hover { text-decoration: underline; text-underline-offset: 4px; }

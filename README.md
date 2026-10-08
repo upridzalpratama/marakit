@@ -7,7 +7,7 @@ index.html         Indonesian page (main, 13 sections in PRD order)
 en/index.html      English page (separate page, per the PRD's /en guidance)
 css/styles.css     design tokens, typography, components (shared)
 js/main.js         WhatsApp booking, GA4, Meta Pixel, Clarity, pricing switch (shared)
-assets/            favicon.svg, og-image.png, og-image-en.png
+assets/            favicon.svg, og-image.png, og-image-en.png, clients/ (client logos, WebP)
 tools/             OG image templates and render script
 ```
 
@@ -23,7 +23,7 @@ Local preview: `npx serve .` then open http://localhost:3000 and http://localhos
 
 1. **`js/main.js` → `CONFIG`**: `ga4Id`, `metaPixelId`, `clarityId`. Empty IDs are not loaded. `whatsappNumber` is set to 6281220694447.
 2. **Replace sample content with real data** (marked `GANTI` / `REPLACE` in the HTML):
-   - Social proof bar: 40+ brands, 2,000+ assets, 5 days.
+   - Social proof bar: 2,000+ assets and 5 days. (10+ brands managed is real data.)
    - Proof section: 3 case studies (one with ROAS/CPA) and the testimonial. The PRD forbids launching with placeholders. Write metrics exactly as they are (ROAS 3,2x, CPA Rp45.000), never rounded up.
    - Pricing: all Build and run / Build only figures. Write them in full (Rp15.000.000), never "15jt".
    - About: photo (replace the `.about__photo` content with an `<img>`) and story.
@@ -32,6 +32,10 @@ Local preview: `npx serve .` then open http://localhost:3000 and http://localhos
    - TikTok and Instagram links are removed for now. Add them back in the About section, footer, and `sameAs` in the schema once the accounts are ready.
 3. **Domain**: marakit.com as primary; redirect marakit.id, merakit.com and www to it.
 4. **Meta Conversions API** needs a server or a partner integration. It can't run from a static page.
+
+## Brand history and client logos
+- Marakit was previously **Startiq Digital**, founded in 2025. This is mentioned in About, the footer, and the schema (`alternateName`, `foundingDate`) on both pages.
+- Client logos live in `assets/clients/` (trimmed, transparent background, 120px tall WebP). They show in grayscale and turn full colour on hover. To add one, drop a WebP in that folder and add an `<li>` to `.logos__list` in both HTML files. If a logo looks too small next to the others, add `class="logo--tall"`.
 
 ## Booking
 Every booking button opens `wa.me/6281220694447` with a pre-written message, in the page's language. The form in the closing section adds the visitor's name, WhatsApp number, brand and monthly revenue to that message.
