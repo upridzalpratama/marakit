@@ -58,7 +58,7 @@ UTM parameters are kept for the session and sent with every event. They are also
 
 ## Design
 The page uses a dark, futuristic theme, chosen deliberately over the PRD's palette and "no gradients or glow" rule:
-- Near-black background with a slowly moving amber and cyan aurora, a fine grid, film grain and floating particles that react to the cursor.
+- Near-black background with a faint, slowly moving amber and cyan aurora at the edges, a subtle grid and dim particles. The centre of the screen and every section sit on a dark layer so text stays easy to read.
 - Glass-style cards with a cursor spotlight and glowing gradient border on hover; gradient headline phrase and glowing CTA buttons.
 - Fonts: Syne (headlines), Instrument Sans (body), JetBrains Mono (numbers and labels).
 - Motion: staggered hero entrance, reveal on scroll, counting stats, logo marquee, 3D tilt on the hero card, scroll progress line under the navbar.
