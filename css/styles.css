@@ -308,6 +308,8 @@ h3 { font-family: var(--sans); font-weight: 600; font-size: 19px; line-height: 1
 .case__body p:last-child { color: var(--slate); }
 .case__client { margin: 0; padding: 16px 24px; border-top: 1px solid var(--sand); font-weight: 600; font-size: 15px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
 .case__tag { font-weight: 400; font-size: 13px; color: var(--slate); }
+a.case__tag { text-decoration: underline; text-underline-offset: 3px; }
+a.case__tag:hover { color: var(--ink); text-decoration-color: var(--amber); }
 
 .quote { margin: 40px 0 0; padding: 24px; background: var(--amber-wash); border-radius: var(--radius-card); max-width: 800px; }
 .quote p { font-family: var(--serif); font-size: 22px; line-height: 1.35; margin-bottom: 16px; }

@@ -24,7 +24,7 @@ Local preview: `npx serve .` then open http://localhost:3000 and http://localhos
 1. **`js/main.js` → `CONFIG`**: `ga4Id`, `metaPixelId`, `clarityId`. Empty IDs are not loaded. `whatsappNumber` is set to 6281220694447.
 2. **Replace sample content with real data** (marked `GANTI` / `REPLACE` in the HTML):
    - Social proof bar: 2,000+ assets and 5 days. (10+ brands managed is real data.)
-   - Proof section: 3 case studies (one with ROAS/CPA) and the testimonial. The PRD forbids launching with placeholders. Write metrics exactly as they are (ROAS 3,2x, CPA Rp45.000), never rounded up.
+   - Proof section: the Ghovigha case (10,000+ TikTok followers in 3 months, millions of views, over Rp10.000.000 in sales) is real. The other 2 case studies (one with ROAS/CPA) and the testimonial are still samples. The PRD forbids launching with placeholders. Write metrics exactly as they are (ROAS 3,2x, CPA Rp45.000), never rounded up.
    - Pricing: all Build and run / Build only figures. Write them in full (Rp15.000.000), never "15jt".
    - About: photo (replace the `.about__photo` content with an `<img>`) and story.
    - Closing CTA: the audit refund guarantee is a business commitment.
