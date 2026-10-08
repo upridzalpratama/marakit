@@ -9,7 +9,9 @@
   <link rel="alternate" hreflang="id" href="https://marakit.com/">
   <link rel="alternate" hreflang="en" href="https://marakit.com/en/">
   <link rel="alternate" hreflang="x-default" href="https://marakit.com/">
-  <meta name="theme-color" content="#0E1A2B">
+  <meta name="theme-color" content="#05070D">
+  <meta name="color-scheme" content="dark">
+  <script>document.documentElement.classList.add("js")</script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <meta property="og:type" content="website">
@@ -26,7 +28,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Instrument+Sans:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 
   <script type="application/ld+json">
@@ -62,6 +64,13 @@
   </script>
 </head>
 <body>
+  <div class="fx" aria-hidden="true">
+    <div class="fx__aurora"><span></span><span></span><span></span></div>
+    <div class="fx__grid"></div>
+    <canvas class="fx__particles" id="fx-particles"></canvas>
+    <div class="fx__grain"></div>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Langsung ke konten</a>
 
   <!-- 1. Navbar -->
@@ -93,7 +102,7 @@
       <div class="container hero__grid">
         <div class="hero__copy">
           <p class="eyebrow">Marakit, perakit sistem marketing</p>
-          <h1>Sistem marketing yang kamu miliki sendiri, bukan jasa yang kamu sewa selamanya.</h1>
+          <h1>Sistem marketing yang <span class="grad">kamu miliki sendiri</span>, bukan jasa yang kamu sewa selamanya.</h1>
           <p class="lead">Kami rakit sistem konten dan iklan untuk timmu, lalu kami serahkan sampai jalan tanpa kami.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="https://wa.me/6281220694447" data-cta="hero" target="_blank" rel="noopener">Booking konsultasi 30 menit</a>
@@ -568,5 +577,6 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script src="js/fx.js" defer></script>
 </body>
 </html>

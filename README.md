@@ -7,6 +7,7 @@ index.html         Indonesian page (main, 13 sections in PRD order)
 en/index.html      English page (separate page, per the PRD's /en guidance)
 css/styles.css     design tokens, typography, components (shared)
 js/main.js         WhatsApp booking, GA4, Meta Pixel, Clarity, pricing switch (shared)
+js/fx.js           visual effects: reveal on scroll, counters, logo marquee, card spotlight, hero tilt, particles
 assets/            favicon.svg, og-image.png, og-image-en.png, clients/ (client logos, WebP)
 tools/             OG image templates and render script
 ```
@@ -55,12 +56,20 @@ Every booking button opens `wa.me/6281220694447` with a pre-written message, in 
 
 UTM parameters are kept for the session and sent with every event. They are also added to the WhatsApp message.
 
+## Design
+The page uses a dark, futuristic theme, chosen deliberately over the PRD's palette and "no gradients or glow" rule:
+- Near-black background with a slowly moving amber and cyan aurora, a fine grid, film grain and floating particles that react to the cursor.
+- Glass-style cards with a cursor spotlight and glowing gradient border on hover; gradient headline phrase and glowing CTA buttons.
+- Fonts: Syne (headlines), Instrument Sans (body), JetBrains Mono (numbers and labels).
+- Motion: staggered hero entrance, reveal on scroll, counting stats, logo marquee, 3D tilt on the hero card, scroll progress line under the navbar.
+- Visitors who set "reduce motion" on their device get a static page: no particles, marquee, or reveal animations.
+- Performance: the aurora uses plain radial gradients (no blur filter) and the frosted-glass blur is only on the navbar and hero card, which keeps scrolling smooth on phones.
+
 ## PRD rules applied
 - 13 sections in order; light/dark section pattern; booking CTA in navbar, hero, after Proof, Pricing and closing.
 - Two systems (Content System, Ads Management System), shown in Solution, Deliverables and Pricing. Three tiers with Full System marked most popular. Build and run is selected by default, with Build only one click away.
 - "AI" appears twice per page, only in How It Works and the FAQ, never in the hero, Problem or Solution. How It Works shows which steps machines do and which people do.
 - Reader addressed as "kamu"; no em dashes; none of the banned words; meta title, description and OG text in Indonesian on the main page.
-- 9-colour palette, navy CTA with white text, no gradients or glow. Fraunces, Inter 400/600, JetBrains Mono.
 - One H1, meta title under 60 characters, LocalBusiness (ProfessionalService) and FAQPage schema, custom OG image per language.
 
 OG images: edit `tools/og-image.html` / `tools/og-image-en.html`, then run `node tools/render-og.mjs` (needs Playwright).
