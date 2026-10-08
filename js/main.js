@@ -1,11 +1,10 @@
-/* Marakit landing page: booking, WhatsApp, and tracking. */
+/* Marakit landing page: booking lewat WhatsApp, dan tracking. */
 (function () {
   "use strict";
 
   // Isi semua nilai ini sebelum launch. Nilai kosong berarti script tersebut tidak dimuat.
   var CONFIG = {
-    calLink: "marakit/konsultasi-30-menit", // username/event-type di Cal.com
-    whatsappNumber: "6281200000000", // format internasional tanpa +
+    whatsappNumber: "6281220694447", // nomor booking, format internasional tanpa +
     ga4Id: "", // contoh: G-XXXXXXXXXX
     metaPixelId: "", // contoh: 123456789012345
     clarityId: "" // contoh: abcdefghij
@@ -95,13 +94,6 @@
     if (window.location.hostname === "localhost") console.info("[track]", name, params);
   }
 
-  /* ---------- CTA clicks ---------- */
-  document.querySelectorAll("a[data-cta]").forEach(function (el) {
-    el.addEventListener("click", function () {
-      track("cta_click", { location: el.getAttribute("data-cta") });
-    });
-  });
-
   /* ---------- WhatsApp ---------- */
   function waUrl(extra) {
     var text = T.wa;
@@ -111,45 +103,23 @@
     return "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(text);
   }
 
-  document.querySelectorAll("[data-wa]").forEach(function (el) {
+  // Semua tombol booking langsung membuka WhatsApp dengan pesan sudah terisi.
+  document.querySelectorAll("a[data-cta]").forEach(function (el) {
     el.setAttribute("href", waUrl());
     el.addEventListener("click", function () {
-      var form = document.getElementById("booking-form");
-      var data = form ? formSummary(form) : "";
-      if (data) el.setAttribute("href", waUrl(data));
-      track("whatsapp_click", { location: el.getAttribute("data-wa") });
+      var loc = el.getAttribute("data-cta");
+      track("cta_click", { location: loc });
+      track("booking_started", { location: loc, method: "whatsapp" });
+      track("whatsapp_click", { location: loc });
     });
   });
 
-  /* ---------- Cal.com ---------- */
-  var calReady = false;
-  function loadCal() {
-    if (calReady) return;
-    calReady = true;
-    /* Snippet resmi Cal.com embed */
-    /* eslint-disable */
-    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    /* eslint-enable */
-    window.Cal("init", { origin: "https://cal.com" });
-    window.Cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
-    var done = false;
-    function onBooked() {
-      if (done) return;
-      done = true;
-      track("booking_completed", { method: "cal" });
-    }
-    window.Cal("on", { action: "bookingSuccessful", callback: onBooked });
-    window.Cal("on", { action: "bookingSuccessfulV2", callback: onBooked });
-  }
-
-  // Muat embed lebih awal saat pengunjung mendekati form, supaya modal terbuka cepat.
-  var bookingSection = document.getElementById("booking");
-  if (bookingSection && "IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      if (entries.some(function (e) { return e.isIntersecting; })) { loadCal(); io.disconnect(); }
-    }, { rootMargin: "400px" });
-    io.observe(bookingSection);
-  }
+  document.querySelectorAll("a[data-wa]").forEach(function (el) {
+    el.setAttribute("href", waUrl());
+    el.addEventListener("click", function () {
+      track("whatsapp_click", { location: el.getAttribute("data-wa") });
+    });
+  });
 
   /* ---------- Form ---------- */
   function formSummary(form) {
@@ -162,6 +132,7 @@
     return parts.join("\n");
   }
 
+  // Form penutup: data kualifikasi ikut terkirim di pesan WhatsApp.
   var form = document.getElementById("booking-form");
   if (form) {
     var errorEl = document.getElementById("form-error");
@@ -181,23 +152,15 @@
       }
       errorEl.hidden = true;
 
-      var f = form.elements;
-      var notes = formSummary(form);
-      var src = utmSummary();
-      notes += "\nLang: " + LANG;
-      if (src) notes += "\n" + T.source + ": " + src;
-
       track("cta_click", { location: "penutup" });
-      track("booking_started", { omzet: f.omzet.value });
+      track("booking_started", { location: "penutup", method: "whatsapp", omzet: form.elements.omzet.value });
+      track("whatsapp_click", { location: "penutup" });
 
-      var config = { name: f.name.value.trim(), notes: notes, layout: "month_view" };
-      loadCal();
-      try {
-        window.Cal("modal", { calLink: CONFIG.calLink, config: config });
-      } catch (e) {
-        var q = new URLSearchParams({ name: config.name, notes: notes });
-        window.open("https://cal.com/" + CONFIG.calLink + "?" + q.toString(), "_blank", "noopener");
-      }
+      var url = waUrl(formSummary(form));
+      var win = window.open(url, "_blank");
+      if (win) win.opener = null;
+      else window.location.href = url; // popup diblokir
+
     });
 
     form.addEventListener("input", function (ev) {

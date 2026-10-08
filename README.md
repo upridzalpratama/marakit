@@ -6,7 +6,7 @@ One-page landing site built from the PRD, in Bahasa Indonesia at `/` and English
 index.html         Indonesian page (main, 13 sections in PRD order)
 en/index.html      English page (separate page, per the PRD's /en guidance)
 css/styles.css     design tokens, typography, components (shared)
-js/main.js         Cal.com, WhatsApp, GA4, Meta Pixel, Clarity, pricing switch (shared)
+js/main.js         WhatsApp booking, GA4, Meta Pixel, Clarity, pricing switch (shared)
 assets/            favicon.svg, og-image.png, og-image-en.png
 tools/             OG image templates and render script
 ```
@@ -21,31 +21,35 @@ Local preview: `npx serve .` then open http://localhost:3000 and http://localhos
 
 ## Must do before launch
 
-1. **`js/main.js` → `CONFIG`**: `calLink`, `whatsappNumber`, `ga4Id`, `metaPixelId`, `clarityId`. Empty IDs are not loaded.
+1. **`js/main.js` → `CONFIG`**: `ga4Id`, `metaPixelId`, `clarityId`. Empty IDs are not loaded. `whatsappNumber` is set to 6281220694447.
 2. **Replace sample content with real data** (marked `GANTI` / `REPLACE` in the HTML):
    - Social proof bar: 40+ brands, 2,000+ assets, 5 days.
    - Proof section: 3 case studies (one with ROAS/CPA) and the testimonial. The PRD forbids launching with placeholders. Write metrics exactly as they are (ROAS 3,2x, CPA Rp45.000), never rounded up.
    - Pricing: all Build and run / Build only figures. Write them in full (Rp15.000.000), never "15jt".
-   - How It Works: tool names in the machine vs human table (ChatGPT, Claude, CapCut, Looker Studio) must match the tools actually used.
    - About: photo (replace the `.about__photo` content with an `<img>`) and story.
    - Closing CTA: the audit refund guarantee is a business commitment.
-   - Footer and schema: email `halo@marakit.com`, city, social handles.
+   - Footer and schema: email `halo@marakit.com`, city.
+   - TikTok and Instagram links are removed for now. Add them back in the About section, footer, and `sameAs` in the schema once the accounts are ready.
 3. **Domain**: marakit.com as primary; redirect marakit.id, merakit.com and www to it.
-4. **Meta Conversions API** needs a server or a partner integration (e.g. a Cal.com webhook). It can't run from a static page.
+4. **Meta Conversions API** needs a server or a partner integration. It can't run from a static page.
+
+## Booking
+Every booking button opens `wa.me/6281220694447` with a pre-written message, in the page's language. The form in the closing section adds the visitor's name, WhatsApp number, brand and monthly revenue to that message.
+
+`booking_completed` can't be tracked on the page anymore, because the booking happens inside WhatsApp. Count completed bookings manually from WhatsApp chats.
 
 ## Tracking
 
 | Event | When |
 |---|---|
 | `cta_click` | Any booking button (`location`: navbar, hero, after_bukti, paket_*, penutup) |
-| `booking_started` | The 4-field form is valid and the Cal.com modal opens |
-| `booking_completed` | Cal.com reports a successful booking |
+| `booking_started` | Any booking button clicked, or the 4-field form sent (opens WhatsApp) |
 | `whatsapp_click` | WhatsApp button clicked |
 | `scroll_75` | Visitor scrolls 75% of the page |
 | `pricing_model` | Visitor switches between Build and run and Build only |
 | `language_switch` | Visitor switches between ID and EN |
 
-UTM parameters are kept for the session and sent with every event. They are also added to the Cal.com booking notes and the WhatsApp message, along with the page language.
+UTM parameters are kept for the session and sent with every event. They are also added to the WhatsApp message.
 
 ## PRD rules applied
 - 13 sections in order; light/dark section pattern; booking CTA in navbar, hero, after Proof, Pricing and closing.
