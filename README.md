@@ -8,7 +8,7 @@ en/index.html      English page (separate page, per the PRD's /en guidance)
 css/styles.css     design tokens, typography, components (shared)
 js/main.js         WhatsApp booking, GA4, Meta Pixel, Clarity, pricing switch (shared)
 js/fx.js           subtle motion: reveal on scroll, counters, logo marquee, scroll progress line
-assets/            favicon.svg, og-image.png, og-image-en.png, clients/ (client logos, WebP)
+assets/            favicons, og-image.png, og-image-en.png, brand/ (logo), clients/ (client logos, WebP)
 tools/             OG image templates and render script
 ```
 
@@ -55,6 +55,13 @@ Every booking button opens `wa.me/6281220694447` with a pre-written message, in 
 | `language_switch` | Visitor switches between ID and EN |
 
 UTM parameters are kept for the session and sent with every event. They are also added to the WhatsApp message.
+
+## Logo
+`assets/brand/` holds the Marakit logo, cut from the master image with transparent backgrounds:
+- `logo-mark.png` (512px) and `logo-mark.webp` (128px): the "m" icon, recoloured to the exact palette plum.
+- `wordmark-plum.*` for light backgrounds and `wordmark-white.*` for plum backgrounds.
+- The favicons (`favicon-32.png`, `favicon-192.png`, `apple-touch-icon.png`) are made from the same icon.
+For the sharpest result at large sizes, replace these with exports from the original vector file (SVG) if you have it.
 
 ## Design (PRD v3)
 - Palette: Plum `#3A1F3D` (headlines, dark sections, CTA), Plum Soft `#5A3360` (cards on plum, hover), Putih Hangat `#FBFAF8` (page), White (cards), Mint `#7FD8BE` only on plum, Mint Deep `#1F7A63` on light backgrounds, Mint Wash `#E3F6F0` (badges, quote, headline highlight), Abu Plum `#5B5560` (body), Garis `#ECE7EC` (borders).

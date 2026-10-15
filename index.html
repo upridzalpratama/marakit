@@ -11,7 +11,9 @@
   <link rel="alternate" hreflang="x-default" href="https://marakit.com/">
   <meta name="theme-color" content="#3A1F3D">
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
@@ -40,6 +42,7 @@
     "foundingDate": "2025",
     "url": "https://marakit.com/",
     "image": "https://marakit.com/assets/og-image.png",
+    "logo": "https://marakit.com/assets/brand/logo-mark.png",
     "email": "halo@marakit.com",
     "areaServed": "ID",
     "address": { "@type": "PostalAddress", "addressLocality": "Jakarta", "addressCountry": "ID" },
@@ -69,8 +72,11 @@
   <header class="nav" id="top">
     <div class="container nav__inner">
       <a class="brand" href="#top" aria-label="Marakit, perakit sistem marketing">
-        <span class="brand__name">Marakit</span>
-        <span class="brand__desc">perakit sistem marketing</span>
+        <img class="brand__mark" src="assets/brand/logo-mark.webp" alt="" width="36" height="36">
+        <span class="brand__text">
+          <img class="brand__word" src="assets/brand/wordmark-plum.webp" alt="Marakit" width="99" height="20">
+          <span class="brand__desc">perakit sistem marketing</span>
+        </span>
       </a>
       <nav aria-label="Navigasi utama">
         <ul class="nav__links">
@@ -445,7 +451,7 @@
     <section class="section section--white" id="tentang">
       <div class="container about">
         <div class="about__photo" role="img" aria-label="Foto tim Marakit">
-          <span>M</span>
+          <img src="assets/brand/logo-mark.webp" alt="" width="128" height="128" loading="lazy" class="about__logo">
         </div>
         <div class="about__copy">
           <h2>Siapa di balik Marakit.</h2>
@@ -545,7 +551,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div>
-        <p class="brand brand--light"><span class="brand__name">Marakit</span><span class="brand__desc">perakit sistem marketing</span></p>
+        <p class="brand brand--light"><img class="brand__mark" src="assets/brand/logo-mark.webp" alt="" width="36" height="36"><span class="brand__text"><img class="brand__word" src="assets/brand/wordmark-white.webp" alt="Marakit" width="99" height="20"><span class="brand__desc">perakit sistem marketing</span></span></p>
         <p class="footer__tag">Sistemnya dirakit, bukan disewa.</p>
         <p class="footer__note">Sebelumnya Startiq Digital, sejak 2025.</p>
       </div>

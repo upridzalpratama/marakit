@@ -141,11 +141,13 @@ h3 { font-weight: 600; font-size: 19px; line-height: 1.3; margin: 0 0 8px; }
 }
 .lang:hover { border-color: var(--plum); }
 
-.brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1.1; margin: 0; }
-.brand__name { font-family: var(--head); font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--plum); }
-.brand__desc { font-size: 12px; color: var(--body); }
-.brand--light .brand__name { color: var(--white); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; line-height: 1.1; margin: 0; }
+.brand__mark { width: 36px; height: 36px; flex-shrink: 0; }
+.brand__text { display: flex; flex-direction: column; gap: 4px; }
+.brand__word { height: 20px; width: auto; }
+.brand__desc { font-size: 11.5px; color: var(--body); white-space: nowrap; }
 .brand--light .brand__desc { color: var(--on-plum-muted); }
+.brand--light .brand__mark { border-radius: 9px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2); }
 
 /* ---------- Hero ---------- */
 .hero { padding: 48px 0 var(--section-y); }
@@ -350,8 +352,8 @@ a.case__tag { color: var(--mint); text-decoration: underline; text-underline-off
 
 /* ---------- Tentang ---------- */
 .about { display: grid; gap: 40px; align-items: center; }
-.about__photo { aspect-ratio: 4 / 5; max-width: 360px; width: 100%; border-radius: var(--radius-card); background: var(--plum); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.about__photo span { font-family: var(--head); font-weight: 800; font-size: 120px; color: var(--mint); }
+.about__photo { aspect-ratio: 4 / 5; max-width: 360px; width: 100%; border-radius: var(--radius-card); background: var(--mint-wash); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.about__photo img.about__logo { width: 45%; height: auto; object-fit: contain; }
 .about__photo img { width: 100%; height: 100%; object-fit: cover; }
 .about__copy p { color: var(--body); }
 @media (min-width: 768px) { .about { grid-template-columns: 320px 1fr; gap: 64px; } }
