@@ -7,7 +7,7 @@ index.html         Indonesian page (main, 13 sections in PRD order)
 en/index.html      English page (separate page, per the PRD's /en guidance)
 css/styles.css     design tokens, typography, components (shared)
 js/main.js         WhatsApp booking, GA4, Meta Pixel, Clarity, pricing switch (shared)
-js/fx.js           visual effects: reveal on scroll, counters, logo marquee, card spotlight, hero tilt, particles
+js/fx.js           subtle motion: reveal on scroll, counters, logo marquee, scroll progress line
 assets/            favicon.svg, og-image.png, og-image-en.png, clients/ (client logos, WebP)
 tools/             OG image templates and render script
 ```
@@ -56,14 +56,11 @@ Every booking button opens `wa.me/6281220694447` with a pre-written message, in 
 
 UTM parameters are kept for the session and sent with every event. They are also added to the WhatsApp message.
 
-## Design
-The page uses a dark, futuristic theme, chosen deliberately over the PRD's palette and "no gradients or glow" rule:
-- Near-black background with a faint, slowly moving amber and cyan aurora at the edges, a subtle grid and dim particles. The centre of the screen and every section sit on a dark layer so text stays easy to read.
-- Glass-style cards with a cursor spotlight and glowing gradient border on hover; gradient headline phrase and glowing CTA buttons.
-- Fonts: Syne (headlines), Instrument Sans (body), JetBrains Mono (numbers and labels).
-- Motion: staggered hero entrance, reveal on scroll, counting stats, logo marquee, 3D tilt on the hero card, scroll progress line under the navbar.
-- Visitors who set "reduce motion" on their device get a static page: no particles, marquee, or reveal animations.
-- Performance: the aurora uses plain radial gradients (no blur filter) and the frosted-glass blur is only on the navbar and hero card, which keeps scrolling smooth on phones.
+## Design (PRD v3)
+- Palette: Plum `#3A1F3D` (headlines, dark sections, CTA), Plum Soft `#5A3360` (cards on plum, hover), Putih Hangat `#FBFAF8` (page), White (cards), Mint `#7FD8BE` only on plum, Mint Deep `#1F7A63` on light backgrounds, Mint Wash `#E3F6F0` (badges, quote, headline highlight), Abu Plum `#5B5560` (body), Garis `#ECE7EC` (borders).
+- Sections alternate light and plum: hero, problem, proof and pricing are light; How It Works and the closing CTA are plum. Case-study cards are plum with mint numbers.
+- Fonts: Plus Jakarta Sans for headlines, numbers and the wordmark; Inter 400/600 for body.
+- No gradients, glow or particles. Motion is limited to a subtle reveal on scroll, counting stats, a slow client-logo marquee and a scroll progress line. "Reduce motion" turns all of it off.
 
 ## PRD rules applied
 - 13 sections in order; light/dark section pattern; booking CTA in navbar, hero, after Proof, Pricing and closing.

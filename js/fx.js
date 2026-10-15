@@ -1,9 +1,8 @@
-/* Marakit landing page: visual effects (reveal, counters, marquee, spotlight, tilt, particles). */
+/* Marakit landing page: animasi halus (reveal saat scroll, hitung angka, logo berjalan, garis progres). */
 (function () {
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var finePointer = window.matchMedia("(pointer: fine)").matches;
   var root = document.documentElement;
 
   /* ---------- Reveal on scroll ---------- */
@@ -103,51 +102,6 @@
     list.classList.add("is-marquee");
   }
 
-  /* ---------- Card spotlight ---------- */
-  if (finePointer) {
-    document.addEventListener("pointermove", function (e) {
-      var card = e.target.closest && e.target.closest(".card");
-      if (!card) return;
-      var r = card.getBoundingClientRect();
-      card.style.setProperty("--mx", e.clientX - r.left + "px");
-      card.style.setProperty("--my", e.clientY - r.top + "px");
-    }, { passive: true });
-  }
-
-  /* ---------- Hero card: scan line + 3D tilt ---------- */
-  var sys = document.querySelector(".system-card");
-  if (sys) {
-    var scan = document.createElement("div");
-    scan.className = "scan";
-    sys.appendChild(scan);
-    var visual = sys.closest(".hero__visual");
-    if (finePointer && !reduceMotion && visual) {
-      visual.addEventListener("pointermove", function (e) {
-        var r = visual.getBoundingClientRect();
-        var x = (e.clientX - r.left) / r.width - 0.5;
-        var y = (e.clientY - r.top) / r.height - 0.5;
-        sys.style.transform = "rotateY(" + (x * 14).toFixed(2) + "deg) rotateX(" + (-y * 14).toFixed(2) + "deg) translateZ(0)";
-      });
-      visual.addEventListener("pointerleave", function () { sys.style.transform = ""; });
-    }
-  }
-
-  /* ---------- Cursor glow ---------- */
-  var glow = document.querySelector(".cursor-glow");
-  if (glow && finePointer && !reduceMotion) {
-    var gx = 0, gy = 0, tx = 0, ty = 0, glowRaf = 0;
-    window.addEventListener("pointermove", function (e) {
-      tx = e.clientX; ty = e.clientY;
-      root.classList.add("has-pointer");
-      if (!glowRaf) glowRaf = requestAnimationFrame(moveGlow);
-    }, { passive: true });
-    function moveGlow() {
-      gx += (tx - gx) * 0.18; gy += (ty - gy) * 0.18;
-      glow.style.transform = "translate3d(" + gx + "px," + gy + "px,0)";
-      glowRaf = Math.abs(tx - gx) + Math.abs(ty - gy) > 0.5 ? requestAnimationFrame(moveGlow) : 0;
-    }
-  }
-
   /* ---------- Scroll progress on navbar ---------- */
   var nav = document.querySelector(".nav");
   var ticking = false;
@@ -162,72 +116,4 @@
   }, { passive: true });
   updateProgress();
 
-  /* ---------- Particles ---------- */
-  var canvas = document.getElementById("fx-particles");
-  if (!canvas || reduceMotion || !canvas.getContext) return;
-  var ctx = canvas.getContext("2d");
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0, pts = [], mouse = { x: -9999, y: -9999 }, running = true, raf = 0;
-  var COLORS = ["255,181,71", "62,240,255", "255,107,44"];
-  var LINK = 130;
-
-  function resize() {
-    W = window.innerWidth; H = window.innerHeight;
-    canvas.width = W * dpr; canvas.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var n = Math.round(Math.min(W < 768 ? 32 : 80, (W * H) / 16000));
-    pts = [];
-    for (var i = 0; i < n; i++) {
-      pts.push({
-        x: Math.random() * W, y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
-        r: Math.random() * 1.6 + 0.6,
-        c: COLORS[i % COLORS.length]
-      });
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    for (var i = 0; i < pts.length; i++) {
-      var p = pts[i];
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < -20) p.x = W + 20; else if (p.x > W + 20) p.x = -20;
-      if (p.y < -20) p.y = H + 20; else if (p.y > H + 20) p.y = -20;
-
-      // Partikel ditarik halus ke arah kursor.
-      var mdx = mouse.x - p.x, mdy = mouse.y - p.y, md = Math.sqrt(mdx * mdx + mdy * mdy);
-      if (md < 180) { p.x += mdx * 0.004; p.y += mdy * 0.004; }
-
-      for (var j = i + 1; j < pts.length; j++) {
-        var q = pts[j], dx = p.x - q.x, dy = p.y - q.y, d = Math.sqrt(dx * dx + dy * dy);
-        if (d < LINK) {
-          ctx.strokeStyle = "rgba(" + p.c + "," + (0.18 * (1 - d / LINK)).toFixed(3) + ")";
-          ctx.lineWidth = 0.6;
-          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
-        }
-      }
-      if (md < 180) {
-        ctx.strokeStyle = "rgba(" + p.c + "," + (0.35 * (1 - md / 180)).toFixed(3) + ")";
-        ctx.lineWidth = 0.8;
-        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
-      }
-      // Halo tipis sebagai pengganti shadowBlur, yang jauh lebih berat.
-      ctx.fillStyle = "rgba(" + p.c + ",0.15)";
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 3.2, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = "rgba(" + p.c + ",0.95)";
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
-    }
-    if (running) raf = requestAnimationFrame(draw);
-  }
-
-  window.addEventListener("resize", function () { resize(); }, { passive: true });
-  window.addEventListener("pointermove", function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
-  window.addEventListener("pointerleave", function () { mouse.x = mouse.y = -9999; });
-  document.addEventListener("visibilitychange", function () {
-    running = !document.hidden;
-    if (running) { cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); }
-  });
-  resize();
-  raf = requestAnimationFrame(draw);
 })();
