@@ -81,6 +81,7 @@
       <nav aria-label="Navigasi utama">
         <ul class="nav__links">
           <li><a href="#cara-kerja">Cara Kerja</a></li>
+          <li><a href="#produk">Produk</a></li>
           <li><a href="#bukti">Bukti</a></li>
           <li><a href="#paket">Paket</a></li>
         </ul>
@@ -95,10 +96,11 @@
   </header>
 
   <main id="main">
-    <!-- 2. Hero (terang). Tanpa kata AI. -->
+    <!-- 2. Hero (terang). Badge produk di atas headline. -->
     <section class="hero section--bone">
       <div class="container hero__grid">
         <div class="hero__copy">
+          <a class="hero__badge" href="#produk" data-track="hero_badge"><span class="hero__badge-tag">Baru</span>AI Marketing Worksheet sudah tersedia</a>
           <h1>Sistem marketing yang <span class="hl">kamu miliki sendiri</span>, bukan jasa yang kamu sewa selamanya.</h1>
           <p class="lead">Kami rakit sistem konten dan iklan untuk timmu, lalu kami serahkan sampai jalan tanpa kami.</p>
           <div class="hero__actions">
@@ -284,7 +286,59 @@
       </div>
     </section>
 
-    <!-- 7. Deliverable per sistem -->
+    <!-- 7. Produk digital. Link Beli dan Lihat isinya diatur di js/main.js (CONFIG.products). -->
+    <!-- GANTI kalau perlu: harga, nama, dan perkiraan rilis produk. -->
+    <section class="section section--white" id="produk">
+      <div class="container">
+        <header class="section__head">
+          <h2>Mulai dari sistem yang bisa kamu jalankan sendiri</h2>
+          <p class="section__sub">Produk digital Marakit untuk UMKM yang ingin memakai AI untuk marketing, tanpa harus paham teknis.</p>
+        </header>
+
+        <article class="card product product--featured">
+          <div class="product__info">
+            <span class="badge">Tersedia</span>
+            <h3 class="product__name">AI Marketing Worksheet untuk UMKM</h3>
+            <p class="product__desc">Isi profil bisnis sekali, 30 prompt marketing langsung siap dipakai di ChatGPT, Claude, atau Gemini. Lengkap dengan jalur sesuai kondisi usahamu, checklist persiapan, kalender konten 30 hari, tracker iklan, dan kamus istilah.</p>
+            <ul class="checklist">
+                <li>30 prompt yang terisi otomatis</li>
+                <li>Jalur khusus untuk yang baru mulai, sudah jalan, atau sudah online</li>
+                <li>Bisa dipakai di Google Sheets, termasuk dari HP</li>
+                <li>Kamus istilah dengan bahasa sehari-hari</li>
+            </ul>
+          </div>
+          <div class="product__buy">
+            <p class="product__price">
+              <span class="visually-hidden">Harga: </span><span class="mono">Rp49.000</span>
+              <s class="product__was"><span class="visually-hidden">Harga normal: </span>Rp99.000</s>
+            </p>
+            <p class="product__note">Sekali bayar, akses selamanya.</p>
+            <a class="btn btn--primary btn--block" href="https://wa.me/6281220694447" data-product="worksheet" data-product-link="buyUrl" data-wa-fallback="Halo Marakit, saya mau beli AI Marketing Worksheet untuk UMKM." target="_blank" rel="noopener">Beli sekarang</a>
+            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-product="worksheet" data-product-link="demoUrl" data-wa-fallback="Halo Marakit, saya mau lihat isi AI Marketing Worksheet untuk UMKM." target="_blank" rel="noopener">Lihat isinya</a>
+          </div>
+        </article>
+
+        <p class="caption products__label">Produk berikutnya</p>
+        <div class="products-soon">
+          <article class="card product product--soon">
+            <span class="badge badge--soon">Segera hadir</span>
+            <h3 class="product__name">Sistem Marketing 30 Menit untuk Coffee Shop</h3>
+            <p class="product__desc">Sistem lengkap dengan tutorial video: kalender, template konten, dan checklist harian yang bisa dijalankan tim kecil.</p>
+            <p class="product__release">Perkiraan rilis: Desember 2026</p>
+            <a class="btn btn--secondary" href="https://wa.me/6281220694447" data-wa-text="Halo Marakit, saya mau dikabari saat Sistem Marketing 30 Menit untuk Coffee Shop rilis." data-event="notify_click" data-wa-loc="produk_kabari" target="_blank" rel="noopener">Kabari saya</a>
+          </article>
+          <article class="card product product--soon">
+            <span class="badge badge--soon">Segera hadir</span>
+            <h3 class="product__name">Sistem Iklan untuk Pemula</h3>
+            <p class="product__desc">Cara mulai boost post dan membaca hasilnya, diukur dari chat WhatsApp, bukan istilah iklan yang membingungkan.</p>
+            <p class="product__release">Perkiraan rilis: Januari 2027</p>
+            <a class="btn btn--secondary" href="https://wa.me/6281220694447" data-wa-text="Halo Marakit, saya mau dikabari saat Sistem Iklan untuk Pemula rilis." data-event="notify_click" data-wa-loc="produk_kabari" target="_blank" rel="noopener">Kabari saya</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Deliverable per sistem -->
     <section class="section section--bone" id="deliverable">
       <div class="container">
         <header class="section__head">
@@ -317,7 +371,7 @@
       </div>
     </section>
 
-    <!-- 8. Bukti (terang). AI tidak disebut, cukup angka. -->
+    <!-- 9. Bukti (terang). AI tidak disebut, cukup angka. -->
     <!-- Studi kasus Ghovigha adalah data nyata. GANTI sebelum launch: 2 studi kasus lainnya masih CONTOH STRUKTUR. Tulis angka apa adanya (ROAS 3,2x, CPA Rp45.000), jangan dibulatkan. -->
     <section class="section section--white" id="bukti">
       <div class="container">
@@ -372,13 +426,15 @@
       </div>
     </section>
 
-    <!-- 9. Paket (terang) -->
+    <!-- 10. Paket (terang) -->
     <!-- GANTI sebelum launch: cek ulang semua harga. Tulis lengkap (Rp15.000.000), bukan 15jt. -->
     <section class="section section--bone" id="paket" data-model="run">
       <div class="container">
         <header class="section__head">
+          <span class="badge badge--soon">Segera dibuka</span>
           <h2>Pilih sistem dan cara serah terimanya.</h2>
           <p class="section__sub">Harga final tergantung jumlah channel dan volume konten. Budget iklan dibayar terpisah, langsung dari akunmu.</p>
+          <p class="section__sub">Layanan agensi dibuka bertahap. Masuk daftar tunggu supaya kamu dikabari lebih dulu.</p>
         </header>
 
         <div class="models" role="group" aria-label="Model serah terima">
@@ -407,7 +463,7 @@
               <li>Workflow dan SOP produksi</li>
               <li>Pelatihan 2 sesi plus rekaman</li>
             </ul>
-            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-cta="paket_content" target="_blank" rel="noopener">Booking konsultasi</a>
+            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-wa-text="Halo Marakit, saya mau masuk daftar tunggu layanan Content System." data-event="waitlist_click" data-wa-loc="paket_content" target="_blank" rel="noopener">Masuk daftar tunggu</a>
           </article>
           <article class="card tier">
             <h3>Ads System</h3>
@@ -423,7 +479,7 @@
               <li>Budget pacing dan kill rules</li>
               <li>Dashboard dan SOP optimisasi</li>
             </ul>
-            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-cta="paket_ads" target="_blank" rel="noopener">Booking konsultasi</a>
+            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-wa-text="Halo Marakit, saya mau masuk daftar tunggu layanan Ads System." data-event="waitlist_click" data-wa-loc="paket_ads" target="_blank" rel="noopener">Masuk daftar tunggu</a>
           </article>
           <article class="card tier tier--popular">
             <span class="badge">Paling populer</span>
@@ -440,13 +496,13 @@
               <li>Satu dashboard konten dan iklan</li>
               <li>Serah terima penuh ke timmu</li>
             </ul>
-            <a class="btn btn--primary btn--block" href="https://wa.me/6281220694447" data-cta="paket_full" target="_blank" rel="noopener">Booking konsultasi</a>
+            <a class="btn btn--primary btn--block" href="https://wa.me/6281220694447" data-wa-text="Halo Marakit, saya mau masuk daftar tunggu layanan Full System." data-event="waitlist_click" data-wa-loc="paket_full" target="_blank" rel="noopener">Masuk daftar tunggu</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 10. Tentang -->
+    <!-- 11. Tentang -->
     <!-- GANTI sebelum launch: foto founder (WebP, maks 100KB) dan cerita singkat. -->
     <section class="section section--white" id="tentang">
       <div class="container about">
@@ -462,7 +518,7 @@
       </div>
     </section>
 
-    <!-- 11. FAQ -->
+    <!-- 12. FAQ -->
     <section class="section section--bone" id="faq">
       <div class="container container--narrow">
         <header class="section__head">
@@ -501,13 +557,17 @@
       </div>
     </section>
 
-    <!-- 12. CTA penutup (gelap) -->
+    <!-- 13. CTA penutup (gelap) -->
     <!-- GANTI kalau perlu: garansi audit adalah komitmen bisnis. -->
     <section class="section section--dark" id="booking">
       <div class="container closing">
         <div class="closing__copy">
           <h2>Satu sesi, dan kamu pulang dengan peta masalah marketingmu.</h2>
           <p>Kita bahas output konten, akun iklan, dan apa yang perlu dirakit lebih dulu. Kalau Marakit bukan jawabannya, kami bilang langsung.</p>
+          <div class="closing__actions">
+            <a class="btn btn--light" href="#produk" data-track="closing_lihat_produk">Lihat produk</a>
+          </div>
+          <p class="closing__hint">Mau mulai sendiri dulu? Produk digital kami bisa langsung kamu pakai hari ini.</p>
           <div class="guarantee">
             <h3>Garansi audit</h3>
             <p>Kalau setelah tahap Audit kamu tidak dapat insight baru, biaya audit kami kembalikan penuh.</p>
@@ -541,13 +601,13 @@
             </select>
           </div>
           <p class="form__error" id="form-error" role="alert" hidden>Lengkapi semua kolom. Nomor WhatsApp diawali 08 atau 62.</p>
-          <button class="btn btn--primary btn--block" type="submit">Booking lewat WhatsApp</button>
+          <button class="btn btn--secondary btn--block" type="submit">Booking lewat WhatsApp</button>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- 13. Footer -->
+  <!-- 14. Footer -->
   <footer class="footer">
     <div class="container footer__grid">
       <div>

@@ -7,7 +7,14 @@
     whatsappNumber: "6281220694447", // nomor booking, format internasional tanpa +
     ga4Id: "", // contoh: G-XXXXXXXXXX
     metaPixelId: "", // contoh: 123456789012345
-    clarityId: "" // contoh: abcdefghij
+    clarityId: "", // contoh: abcdefghij
+    // Link produk digital. Selama kosong, tombolnya membuka WhatsApp dengan pesan terisi.
+    products: {
+      worksheet: {
+        buyUrl: "", // GANTI: link halaman produk di Lynk.id
+        demoUrl: "" // GANTI: link video demo atau gambar preview
+      }
+    }
   };
 
   /* ---------- Bahasa ---------- */
@@ -119,6 +126,40 @@
     el.addEventListener("click", function () {
       track("whatsapp_click", { location: el.getAttribute("data-wa") });
     });
+  });
+
+  // Link WhatsApp dengan pesan khusus (Kabari saya, Masuk daftar tunggu, dan cadangan tombol produk).
+  function waText(text) {
+    var src = utmSummary();
+    if (src) text += "\n\n(" + src + ")";
+    return "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(text);
+  }
+
+  document.querySelectorAll("a[data-wa-text]").forEach(function (el) {
+    el.setAttribute("href", waText(el.getAttribute("data-wa-text")));
+    el.addEventListener("click", function () {
+      var loc = el.getAttribute("data-wa-loc") || "";
+      track(el.getAttribute("data-event") || "whatsapp_click", { location: loc });
+      track("whatsapp_click", { location: loc });
+    });
+  });
+
+  /* ---------- Produk digital ---------- */
+  // data-product="worksheet" data-product-link="buyUrl|demoUrl" data-wa-fallback="pesan".
+  document.querySelectorAll("a[data-product]").forEach(function (el) {
+    var product = CONFIG.products[el.getAttribute("data-product")] || {};
+    var kind = el.getAttribute("data-product-link");
+    var url = product[kind];
+    el.setAttribute("href", url || waText(el.getAttribute("data-wa-fallback")));
+    el.addEventListener("click", function () {
+      track(kind === "buyUrl" ? "product_buy_click" : "product_demo_click", { product: el.getAttribute("data-product"), via: url ? "link" : "whatsapp" });
+      if (!url) track("whatsapp_click", { location: "produk_" + kind });
+    });
+  });
+
+  // Klik ke section Produk (badge hero, tombol CTA penutup).
+  document.querySelectorAll("a[data-track]").forEach(function (el) {
+    el.addEventListener("click", function () { track("cta_click", { location: el.getAttribute("data-track") }); });
   });
 
   /* ---------- Form ---------- */

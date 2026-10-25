@@ -403,6 +403,55 @@ a.case__tag { color: var(--mint); text-decoration: underline; text-underline-off
 .footer__legal { font-size: 13px; margin: 0; }
 @media (min-width: 768px) { .footer__grid { grid-template-columns: 1fr auto; align-items: start; } .footer__legal { grid-column: 1 / -1; border-top: 1px solid var(--on-plum-line); padding-top: 24px; } }
 
+/* ---------- Produk digital ---------- */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+.product { display: flex; flex-direction: column; align-items: flex-start; }
+.product:hover { transform: translateY(-2px); }
+.product__name { font-size: 20px; }
+.product__desc { color: var(--body); }
+
+/* Kartu tersedia: paling menonjol, border plum 2px, lebar penuh */
+.product--featured { display: grid; gap: 32px; align-items: stretch; border: 2px solid var(--plum); }
+.product--featured:hover { border-color: var(--plum-soft); }
+.product--featured .product__name { font-size: 24px; margin-bottom: 12px; }
+.product--featured .checklist { margin-top: 24px; }
+.product__info { display: flex; flex-direction: column; align-items: flex-start; }
+.product__buy { display: flex; flex-direction: column; gap: 12px; justify-content: center; padding: 24px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-card); }
+.product__price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin: 0; }
+.product__price .mono { font-size: 36px; line-height: 1.1; color: var(--plum); }
+.product__was { font-size: 18px; color: var(--body); }
+.product__note { font-size: 14px; color: var(--body); margin: 0 0 8px; }
+@media (min-width: 768px) { .product--featured .product__name { font-size: 28px; } .product__price .mono { font-size: 40px; } }
+@media (min-width: 1024px) { .product--featured { grid-template-columns: 1.5fr 1fr; gap: 48px; } .product__buy { padding: 32px; } }
+
+/* Kartu segera hadir: lebih kecil dan sedikit redup */
+.products__label { margin: 48px 0 16px; }
+.products-soon { display: grid; gap: 16px; }
+@media (min-width: 768px) { .products-soon { grid-template-columns: 1fr 1fr; gap: 24px; } }
+.product--soon { background: var(--bg); }
+.product--soon:hover { border-color: #D9CFDA; }
+.product--soon .product__name, .product--soon .product__desc { opacity: .78; }
+.product--soon .product__desc { flex: 1; }
+.product__release { font-size: 14px; font-weight: 600; color: var(--plum); opacity: .78; margin: 0 0 20px; }
+
+/* Badge "Tersedia" memakai .badge (Mint Wash + Mint Deep). Badge "Segera hadir" / "Segera dibuka": */
+.badge--soon { background: #F1ECF3; color: var(--plum); }
+.section__head .badge { display: inline-block; }
+
+/* Baris "Baru" di atas headline hero */
+.hero__badge { display: inline-flex; align-items: center; gap: 10px; max-width: 100%; margin-bottom: 20px; padding: 6px 14px 6px 6px; border: 1px solid transparent; border-radius: 999px; background: var(--mint-wash); color: var(--mint-deep); font-size: 14px; font-weight: 600; line-height: 1.3; text-decoration: none; transition: border-color .2s ease, transform .2s var(--ease); }
+.hero__badge:hover { border-color: var(--mint-deep); transform: translateY(-2px); }
+.hero__badge-tag { flex-shrink: 0; padding: 3px 10px; border-radius: 999px; background: var(--mint-deep); color: var(--white); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+@media (max-width: 479px) { .hero__badge { gap: 8px; padding: 5px 12px 5px 5px; font-size: 12.5px; letter-spacing: -0.005em; } .hero__badge-tag { padding: 2px 8px; font-size: 11px; } }
+.js .hero__copy > :nth-child(5) { animation-delay: .45s; }
+
+/* Tombol terang untuk section plum */
+.btn--light { background: var(--white); color: var(--plum); }
+.btn--light:hover { background: var(--mint-wash); }
+.closing__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.section--dark .closing__hint { margin-top: 12px; font-size: 14px; }
+
 /* ---------- Gerak dikurangi ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }

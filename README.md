@@ -38,6 +38,14 @@ Local preview: `npx serve .` then open http://localhost:3000 and http://localhos
 - Marakit was previously **Startiq Digital**, founded in 2025. This is mentioned in About, the footer, and the schema (`alternateName`, `foundingDate`) on both pages.
 - Client logos live in `assets/clients/` (trimmed, transparent background, 120px tall WebP). They show in grayscale and turn full colour on hover. To add one, drop a WebP in that folder and add an `<li>` to `.logos__list` in both HTML files. If a logo looks too small next to the others, add `class="logo--tall"`. A brand without a logo can be written as text: `<li><span class="logo-text">Name</span></li>` (Ghovigha uses this).
 
+## Digital products
+Marakit sells digital products first; agency services open later.
+- Section **Produk** (`#produk`, English `#products`) sits right after How It Works. One featured card for the available product, plus smaller "coming soon" cards.
+- **Buy and preview links** live in `js/main.js` → `CONFIG.products.worksheet.buyUrl` (Lynk.id) and `demoUrl` (video or preview image). While they are empty, "Beli sekarang" and "Lihat isinya" open WhatsApp with a prefilled message, so the buttons always work.
+- "Kabari saya" (coming soon) and "Masuk daftar tunggu" (Paket) are plain links with `data-wa-text="..."`; `main.js` turns them into WhatsApp links with that message (plus UTM source if present).
+- To add a product: copy a `.product--soon` card in both HTML files. When it launches, move it into a `.product--featured` card and add its links to `CONFIG.products`.
+- Prices, product names and release dates are marked `GANTI` in the HTML.
+
 ## Booking
 Every booking button opens `wa.me/6281220694447` with a pre-written message, in the page's language. The form in the closing section adds the visitor's name, WhatsApp number, brand and monthly revenue to that message.
 
@@ -53,6 +61,9 @@ Every booking button opens `wa.me/6281220694447` with a pre-written message, in 
 | `scroll_75` | Visitor scrolls 75% of the page |
 | `pricing_model` | Visitor switches between Build and run and Build only |
 | `language_switch` | Visitor switches between ID and EN |
+| `product_buy_click` / `product_demo_click` | "Beli sekarang" / "Lihat isinya" (`via`: link or whatsapp) |
+| `notify_click` | "Kabari saya" on a coming soon product |
+| `waitlist_click` | "Masuk daftar tunggu" on a Paket tier |
 
 UTM parameters are kept for the session and sent with every event. They are also added to the WhatsApp message.
 

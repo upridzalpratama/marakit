@@ -81,6 +81,7 @@
       <nav aria-label="Main navigation">
         <ul class="nav__links">
           <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#products">Products</a></li>
           <li><a href="#proof">Proof</a></li>
           <li><a href="#pricing">Pricing</a></li>
         </ul>
@@ -99,6 +100,7 @@
     <section class="hero section--bone">
       <div class="container hero__grid">
         <div class="hero__copy">
+          <a class="hero__badge" href="#products" data-track="hero_badge"><span class="hero__badge-tag">New</span>AI Marketing Worksheet is now available</a>
           <h1>A marketing system <span class="hl">you own</span>, not a service you rent forever.</h1>
           <p class="lead">We build content and ads systems for your team, then hand them over until they run without us.</p>
           <div class="hero__actions">
@@ -283,7 +285,59 @@
       </div>
     </section>
 
-    <!-- 7. Deliverables -->
+    <!-- 7. Digital products. Buy and preview links are set in js/main.js (CONFIG.products). -->
+    <!-- GANTI kalau perlu: harga, nama, dan perkiraan rilis produk. -->
+    <section class="section section--white" id="products">
+      <div class="container">
+        <header class="section__head">
+          <h2>Start with a system you can run yourself</h2>
+          <p class="section__sub">Marakit digital products for small businesses that want to use AI for marketing, without the technical know-how.</p>
+        </header>
+
+        <article class="card product product--featured">
+          <div class="product__info">
+            <span class="badge">Available</span>
+            <h3 class="product__name">AI Marketing Worksheet for Small Businesses</h3>
+            <p class="product__desc">Fill in your business profile once, and 30 marketing prompts are ready to use in ChatGPT, Claude, or Gemini. Includes paths for your business stage, a prep checklist, a 30 day content calendar, an ads tracker, and a glossary.</p>
+            <ul class="checklist">
+                <li>30 prompts that fill in automatically</li>
+                <li>Separate paths for just starting, already running, or already online</li>
+                <li>Works in Google Sheets, including on your phone</li>
+                <li>A glossary in plain, everyday language</li>
+            </ul>
+          </div>
+          <div class="product__buy">
+            <p class="product__price">
+              <span class="visually-hidden">Price: </span><span class="mono">IDR 49,000</span>
+              <s class="product__was"><span class="visually-hidden">Regular price: </span>IDR 99,000</s>
+            </p>
+            <p class="product__note">One payment, lifetime access.</p>
+            <a class="btn btn--primary btn--block" href="https://wa.me/6281220694447" data-product="worksheet" data-product-link="buyUrl" data-wa-fallback="Hi Marakit, I'd like to buy the AI Marketing Worksheet." target="_blank" rel="noopener">Buy now</a>
+            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-product="worksheet" data-product-link="demoUrl" data-wa-fallback="Hi Marakit, I'd like to see what's inside the AI Marketing Worksheet." target="_blank" rel="noopener">See what's inside</a>
+          </div>
+        </article>
+
+        <p class="caption products__label">Up next</p>
+        <div class="products-soon">
+          <article class="card product product--soon">
+            <span class="badge badge--soon">Coming soon</span>
+            <h3 class="product__name">30 Minute Marketing System for Coffee Shops</h3>
+            <p class="product__desc">A complete system with video tutorials: calendar, content templates, and a daily checklist a small team can run.</p>
+            <p class="product__release">Expected release: December 2026</p>
+            <a class="btn btn--secondary" href="https://wa.me/6281220694447" data-wa-text="Hi Marakit, please let me know when 30 Minute Marketing System for Coffee Shops is released." data-event="notify_click" data-wa-loc="produk_kabari" target="_blank" rel="noopener">Notify me</a>
+          </article>
+          <article class="card product product--soon">
+            <span class="badge badge--soon">Coming soon</span>
+            <h3 class="product__name">Ads System for Beginners</h3>
+            <p class="product__desc">How to start boosting posts and read the results, measured in WhatsApp chats, not confusing ad jargon.</p>
+            <p class="product__release">Expected release: January 2027</p>
+            <a class="btn btn--secondary" href="https://wa.me/6281220694447" data-wa-text="Hi Marakit, please let me know when Ads System for Beginners is released." data-event="notify_click" data-wa-loc="produk_kabari" target="_blank" rel="noopener">Notify me</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Deliverables -->
     <section class="section section--bone" id="deliverables">
       <div class="container">
         <header class="section__head">
@@ -316,7 +370,7 @@
       </div>
     </section>
 
-    <!-- 8. Proof -->
+    <!-- 9. Proof -->
     <!-- The Ghovigha case study is real. REPLACE before launch: the other 2 case studies are SAMPLE STRUCTURE only. Write metrics as they are, never rounded up. -->
     <section class="section section--white" id="proof">
       <div class="container">
@@ -371,12 +425,14 @@
       </div>
     </section>
 
-    <!-- 9. Pricing -->
+    <!-- 10. Pricing -->
     <section class="section section--bone" id="pricing" data-model="run">
       <div class="container">
         <header class="section__head">
+          <span class="badge badge--soon">Opening soon</span>
           <h2>Choose your system and how it is handed over.</h2>
           <p class="section__sub">Final price depends on channels and content volume. Ad spend is paid separately, straight from your account.</p>
+          <p class="section__sub">Agency services open in stages. Join the waitlist to hear first.</p>
         </header>
 
         <div class="models" role="group" aria-label="Handover model">
@@ -405,7 +461,7 @@
               <li>Production workflow and SOPs</li>
               <li>2 training sessions plus recordings</li>
             </ul>
-            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-cta="paket_content" target="_blank" rel="noopener">Book a call</a>
+            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-wa-text="Hi Marakit, I'd like to join the waitlist for Content System." data-event="waitlist_click" data-wa-loc="paket_content" target="_blank" rel="noopener">Join the waitlist</a>
           </article>
           <article class="card tier">
             <h3>Ads System</h3>
@@ -421,7 +477,7 @@
               <li>Budget pacing and kill rules</li>
               <li>Dashboard and optimization SOP</li>
             </ul>
-            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-cta="paket_ads" target="_blank" rel="noopener">Book a call</a>
+            <a class="btn btn--secondary btn--block" href="https://wa.me/6281220694447" data-wa-text="Hi Marakit, I'd like to join the waitlist for Ads System." data-event="waitlist_click" data-wa-loc="paket_ads" target="_blank" rel="noopener">Join the waitlist</a>
           </article>
           <article class="card tier tier--popular">
             <span class="badge">Most popular</span>
@@ -438,13 +494,13 @@
               <li>One dashboard for content and ads</li>
               <li>Full handover to your team</li>
             </ul>
-            <a class="btn btn--primary btn--block" href="https://wa.me/6281220694447" data-cta="paket_full" target="_blank" rel="noopener">Book a call</a>
+            <a class="btn btn--primary btn--block" href="https://wa.me/6281220694447" data-wa-text="Hi Marakit, I'd like to join the waitlist for Full System." data-event="waitlist_click" data-wa-loc="paket_full" target="_blank" rel="noopener">Join the waitlist</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 10. About -->
+    <!-- 11. About -->
     <section class="section section--white" id="about">
       <div class="container about">
         <div class="about__photo" role="img" aria-label="Photo of the Marakit team">
@@ -459,7 +515,7 @@
       </div>
     </section>
 
-    <!-- 11. FAQ -->
+    <!-- 12. FAQ -->
     <section class="section section--bone" id="faq">
       <div class="container container--narrow">
         <header class="section__head">
@@ -498,12 +554,16 @@
       </div>
     </section>
 
-    <!-- 12. Closing CTA (dark) -->
+    <!-- 13. Closing CTA (dark) -->
     <section class="section section--dark" id="booking">
       <div class="container closing">
         <div class="closing__copy">
           <h2>One call, and you leave with a map of your marketing problems.</h2>
           <p>We cover your content output, ad accounts, and what to build first. If Marakit is not the answer, we will tell you straight.</p>
+          <div class="closing__actions">
+            <a class="btn btn--light" href="#products" data-track="closing_lihat_produk">See products</a>
+          </div>
+          <p class="closing__hint">Want to start on your own first? Our digital products are ready to use today.</p>
           <div class="guarantee">
             <h3>Audit guarantee</h3>
             <p>If the Audit gives you no new insight, we refund the audit fee in full.</p>
@@ -537,13 +597,13 @@
             </select>
           </div>
           <p class="form__error" id="form-error" role="alert" hidden>Please fill in every field with a valid WhatsApp number.</p>
-          <button class="btn btn--primary btn--block" type="submit">Book on WhatsApp</button>
+          <button class="btn btn--secondary btn--block" type="submit">Book on WhatsApp</button>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- 13. Footer -->
+  <!-- 14. Footer -->
   <footer class="footer">
     <div class="container footer__grid">
       <div>
