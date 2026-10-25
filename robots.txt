@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /archive/
+Disallow: /en/
 
 Sitemap: https://marakit.com/sitemap.xml
