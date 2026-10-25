@@ -5,10 +5,7 @@
   // Isi semua nilai ini sebelum launch. Nilai kosong aman: lihat catatan di tiap baris.
   var CONFIG = {
     whatsappNumber: "6281220694447", // format internasional tanpa +
-    lynk: {
-      basic: "", // GANTI: URL Lynk.id versi Basic. Selama kosong, tombol beli membuka WhatsApp.
-      pro: ""    // GANTI: URL Lynk.id versi Pro. Selama kosong, tombol beli membuka WhatsApp.
-    },
+    lynkUrl: "", // GANTI: URL produk di Lynk.id. Selama kosong, tombol beli membuka WhatsApp.
     demoUrl: "", // GANTI: link video demo (YouTube, Google Drive, atau file .mp4). Selama kosong, modal menampilkan placeholder.
     social: {
       instagram: "",        // GANTI: Instagram Marakit (footer). Link disembunyikan selama kosong.
@@ -26,7 +23,7 @@
   };
 
   var PRODUCT_NAME = "AI Marketing Worksheet untuk UMKM";
-  var PRICES = { basic: 49000, pro: 99000 };
+  var PRICE = 59000;
 
   /* ---------- UTM ---------- */
   var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
@@ -86,13 +83,13 @@
     loadScript("https://www.clarity.ms/tag/" + encodeURIComponent(CONFIG.clarityId));
   }
 
-  // Event khusus: click_buy_basic, click_buy_pro, click_demo, click_waitlist, scroll_75.
+  // Event khusus: click_buy, click_demo, click_waitlist, scroll_75.
   function track(name, params) {
     params = Object.assign({}, utm, params || {});
     if (window.gtag) window.gtag("event", name, params);
     if (window.fbq) {
       window.fbq("trackCustom", name, params);
-      if (name === "click_buy_basic" || name === "click_buy_pro") {
+      if (name === "click_buy") {
         window.fbq("track", "InitiateCheckout", { content_name: params.product, value: params.value, currency: "IDR" });
       }
       if (name === "click_waitlist") window.fbq("track", "Lead", { content_name: params.product });
@@ -114,15 +111,12 @@
 
   /* ---------- Tombol beli (Lynk.id) ---------- */
   document.querySelectorAll("a[data-buy]").forEach(function (el) {
-    var tier = el.getAttribute("data-buy");
-    var url = CONFIG.lynk[tier];
-    el.setAttribute("href", url
-      ? withUtm(url)
-      : waUrl("Halo Marakit, saya mau beli " + PRODUCT_NAME + " versi " + (tier === "pro" ? "Pro" : "Basic") + "."));
+    var url = CONFIG.lynkUrl;
+    el.setAttribute("href", url ? withUtm(url) : waUrl("Halo Marakit, saya mau beli " + PRODUCT_NAME + "."));
     el.addEventListener("click", function () {
-      track(tier === "pro" ? "click_buy_pro" : "click_buy_basic", {
-        product: PRODUCT_NAME + " " + (tier === "pro" ? "Pro" : "Basic"),
-        value: PRICES[tier],
+      track("click_buy", {
+        product: PRODUCT_NAME,
+        value: PRICE,
         currency: "IDR",
         location: el.getAttribute("data-loc"),
         via: url ? "lynk" : "whatsapp"
@@ -137,7 +131,7 @@
     el.addEventListener("click", function () { track("click_waitlist", { product: product }); });
   });
 
-  // Klik internal yang perlu dicatat (announcement bar, link Pro di CTA penutup).
+  // Klik internal yang perlu dicatat (announcement bar).
   document.querySelectorAll("a[data-track]").forEach(function (el) {
     el.addEventListener("click", function () { track("cta_click", { location: el.getAttribute("data-track") }); });
   });
