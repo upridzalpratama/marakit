@@ -5,7 +5,7 @@ Landing page untuk satu produk: **AI Marketing Worksheet untuk UMKM**, satu vers
 Plain HTML, CSS, dan JS tanpa build step. Bisa di-deploy ke Vercel, Netlify, Cloudflare Pages, atau hosting statis mana pun.
 
 ```
-index.html          landing page produk (15 section, urutan sesuai brief)
+index.html          landing page produk
 css/styles.css      design token dan komponen
 js/main.js          CONFIG, link Lynk.id + UTM, demo modal, daftar tunggu, menu mobile, sticky bar, tracking
 js/fx.js            fade-in halus saat scroll (mati kalau "kurangi gerakan" aktif)
@@ -26,12 +26,10 @@ Semua di `js/main.js`, objek `CONFIG`:
 | `lynkUrl` | Halaman checkout Lynk.id (sudah diisi: `lynk.id/upridzal/17vdrmmmrpx4/checkout`) | Kalau dikosongkan, tombol beli membuka WhatsApp dengan pesan "mau beli AI Marketing Worksheet" |
 | `demoUrl` | Video demo 60 detik (YouTube, Google Drive, .mp4, atau gambar) | Modal demo menampilkan placeholder "VIDEO DEMO 60 DETIK" |
 | `social.instagram`, `social.tiktok` | Akun Marakit (footer) | Link disembunyikan |
-| `social.creatorInstagram`, `social.creatorTiktok` | Akun Ridzal (Tentang Pembuat) | Link disembunyikan |
 | `ga4Id`, `metaPixelId`, `clarityId` | ID tracking | Script tidak dimuat |
 
 Gambar:
 - `assets/steps/`: screenshot tab worksheet (WebP, lebar 1400px). Profil Bisnis, Jalur Kamu, dan Checklist Persiapan dipakai di section Cara Kerja (Jalur Kamu juga di frame laptop hero). Prompt Otomatis, Kalender Konten, Tracker Iklan, dan Tracker WhatsApp dipakai di preview bertab di section Isi Produk. Ganti file dengan nama yang sama untuk memperbarui. Semua screenshot bisa diketuk untuk dibuka ukuran penuh.
-- `assets/ridzal.jpg`: foto pembuat, potret 4:5. Belum ada; selama kosong, placeholder yang tampil.
 
 Konten yang ditandai `GANTI` di `index.html`:
 - FAQ "Bisa refund?" masih disembunyikan (`hidden`) sampai kebijakan refund ditulis. Tambahkan juga ke FAQPage JSON-LD di `<head>`.
@@ -61,7 +59,8 @@ UTM dari URL halaman (misalnya `?utm_source=tiktok`) disimpan per sesi, dikirim 
 - Tanpa gradien, glow, partikel, atau ilustrasi robot dan otak. Animasi hanya fade-in saat scroll.
 - Mobile first. Sticky bar "Beli Rp59.000" muncul di mobile setelah melewati hero.
 - Bahasa Indonesia, panggil pembaca "kamu", tanpa em dash, harga ditulis lengkap (Rp59.000).
-- Jangan membuat klaim hasil produk. Angka 7x ROAS dan 700 ribu views hanya di section Tentang Pembuat, sebagai pengalaman pembuatnya.
+- Jangan membuat klaim hasil produk.
+- Section Tentang Pembuat sudah dihapus dari halaman. HTML dan CSS-nya disimpan di `archive/product/tentang-pembuat.html`.
 
 ## OG image
 `assets/og-worksheet.png` dibuat dari `tools/og-worksheet.html`. Edit templatenya lalu jalankan `node tools/render-og.mjs` (butuh Playwright).

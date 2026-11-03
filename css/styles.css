@@ -191,7 +191,7 @@ h3 { font-weight: 600; font-size: 19px; line-height: 1.3; margin: 0 0 8px; }
 /* Placeholder: grid ala spreadsheet, tampil selama screenshot belum ada */
 .device__placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background-color: var(--white);
   background-image: repeating-linear-gradient(0deg, var(--line) 0 1px, transparent 1px 28px), repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 96px); }
-.device__placeholder span, .modal__placeholder span, .about__placeholder { display: inline-block; padding: 8px 14px; border: 1px dashed var(--plum-soft); border-radius: 8px; background: var(--lilac); color: var(--plum); font: 700 13px/1.3 var(--head); letter-spacing: 0.1em; text-align: center; }
+.device__placeholder span, .modal__placeholder span { display: inline-block; padding: 8px 14px; border: 1px dashed var(--plum-soft); border-radius: 8px; background: var(--lilac); color: var(--plum); font: 700 13px/1.3 var(--head); letter-spacing: 0.1em; text-align: center; }
 
 /* ---------- 4. Masalah ---------- */
 .problem__num { display: block; font-family: var(--head); font-weight: 800; font-size: 15px; color: var(--mint-deep); margin-bottom: 12px; }
@@ -284,14 +284,6 @@ h3 { font-weight: 600; font-size: 19px; line-height: 1.3; margin: 0 0 8px; }
   .price-card__price .mono { font-size: 48px; }
 }
 .price-note { margin: 24px 0 0; font-size: 14px; color: var(--body); }
-
-/* ---------- 10. Tentang Pembuat ---------- */
-.about { display: grid; gap: 40px; align-items: center; }
-.about__photo { position: relative; aspect-ratio: 4 / 5; max-width: 320px; width: 100%; border-radius: var(--radius-card); background: var(--lilac); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.about__photo img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
-.about__copy p { color: var(--body); }
-.about__links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-@media (min-width: 768px) { .about { grid-template-columns: 300px 1fr; gap: 64px; } }
 
 /* ---------- 11. Testimoni (disembunyikan sampai ada yang asli) ---------- */
 .testimonial { margin: 0; display: flex; flex-direction: column; gap: 20px; }

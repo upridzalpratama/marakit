@@ -1,0 +1,39 @@
+<!-- ARSIP: section "Tentang Pembuat" dari landing page AI Marketing Worksheet.
+     Dihapus dari halaman utama atas permintaan. Untuk memakai lagi:
+     1. Tempel blok <section> di bawah ke index.html, sebelum section Testimoni.
+     2. Tempel CSS di bagian paling bawah file ini ke css/styles.css.
+     3. Link Instagram/TikTok memakai data-social="creatorInstagram" dan "creatorTiktok":
+        tambahkan kedua kunci itu ke CONFIG.social di js/main.js.
+     4. Taruh foto di assets/ridzal.jpg (potret 4:5). -->
+
+    <!-- 10. Tentang Pembuat -->
+    <!-- GANTI: taruh foto di assets/ridzal.jpg (potret 4:5). Selama file belum ada, placeholder yang tampil. -->
+    <section class="section section--bone" id="tentang">
+      <div class="container about">
+        <div class="about__photo">
+          <img src="assets/ridzal.jpg" alt="Ridzal, pembuat AI Marketing Worksheet" width="720" height="900" loading="lazy" onerror="this.remove()">
+          <span class="about__placeholder" aria-hidden="true">FOTO RIDZAL</span>
+        </div>
+        <div class="about__copy">
+          <h2>Dibuat oleh praktisi, bukan teori.</h2>
+          <p>Dibuat oleh Ridzal, social media strategist di Bandung dengan pengalaman 3 tahun menangani konten dan Meta Ads. Pernah membawa iklan sampai 7x ROAS dan konten TikTok sampai 700 ribu views.</p>
+          <p>Worksheet ini adalah cara kerja yang saya pakai, disederhanakan supaya bisa dijalankan pemilik usaha sendiri.</p>
+          <div class="about__links">
+            <a class="btn btn--secondary btn--sm" href="#" data-social="creatorInstagram" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn btn--secondary btn--sm" href="#" data-social="creatorTiktok" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<style>
+/* ---------- 10. Tentang Pembuat ---------- */
+.about { display: grid; gap: 40px; align-items: center; }
+.about__photo { position: relative; aspect-ratio: 4 / 5; max-width: 320px; width: 100%; border-radius: var(--radius-card); background: var(--lilac); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.about__photo img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+.about__copy p { color: var(--body); }
+.about__links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+@media (min-width: 768px) { .about { grid-template-columns: 300px 1fr; gap: 64px; } }
+
+</style>
