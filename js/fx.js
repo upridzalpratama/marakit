@@ -3,7 +3,7 @@
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var REVEAL = [".section__head", ".card", ".step", ".prompt-compare__punch", ".price-note", ".faq", ".about__photo", ".about__copy", ".closing-cta"].join(",");
+  var REVEAL = [".section__head", ".card", ".howto__text", ".howto__shot", ".tabview", ".prompt-compare__punch", ".price-note", ".faq", ".about__photo", ".about__copy", ".closing-cta"].join(",");
 
   var targets = Array.prototype.slice.call(document.querySelectorAll("main " + REVEAL.split(",").join(", main ")));
   if (reduceMotion || !("IntersectionObserver" in window)) return;

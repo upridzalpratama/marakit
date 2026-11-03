@@ -5,7 +5,7 @@
   // Isi semua nilai ini sebelum launch. Nilai kosong aman: lihat catatan di tiap baris.
   var CONFIG = {
     whatsappNumber: "6281220694447", // format internasional tanpa +
-    lynkUrl: "", // GANTI: URL produk di Lynk.id. Selama kosong, tombol beli membuka WhatsApp.
+    lynkUrl: "https://lynk.id/upridzal/17vdrmmmrpx4/checkout", // halaman checkout Lynk.id. Kalau dikosongkan, tombol beli membuka WhatsApp.
     demoUrl: "", // GANTI: link video demo (YouTube, Google Drive, atau file .mp4). Selama kosong, modal menampilkan placeholder.
     social: {
       instagram: "",        // GANTI: Instagram Marakit (footer). Link disembunyikan selama kosong.
@@ -180,6 +180,33 @@
     // Hentikan video saat modal ditutup.
     modal.addEventListener("close", function () { demoBody.innerHTML = placeholderHTML; });
   }
+
+  /* ---------- Preview tab worksheet ---------- */
+  document.querySelectorAll("[data-tabview]").forEach(function (box) {
+    var tabs = Array.prototype.slice.call(box.querySelectorAll('[role="tab"]'));
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute("aria-controls"));
+        if (panel) panel.classList.toggle("is-active", on);
+      });
+      if (focus) tab.focus();
+      tab.scrollIntoView({ block: "nearest", inline: "nearest" });
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(tab, false); });
+      tab.addEventListener("keydown", function (e) {
+        var next = null;
+        if (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+        else if (e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === "Home") next = tabs[0];
+        else if (e.key === "End") next = tabs[tabs.length - 1];
+        if (next) { e.preventDefault(); select(next, true); }
+      });
+    });
+  });
 
   /* ---------- Menu mobile (hamburger) ---------- */
   var toggle = document.querySelector(".nav__toggle");

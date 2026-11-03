@@ -184,7 +184,7 @@ h3 { font-weight: 600; font-size: 19px; line-height: 1.3; margin: 0 0 8px; }
 
 /* Frame laptop untuk screenshot worksheet */
 .device { max-width: 680px; margin: 0 auto; padding: 0 5%; }
-.device__screen { position: relative; aspect-ratio: 16 / 10; border: 10px solid var(--plum); border-bottom-width: 14px; border-radius: 16px 16px 6px 6px; background: var(--white); overflow: hidden; }
+.device__screen { position: relative; aspect-ratio: 7 / 4; border: 10px solid var(--plum); border-bottom-width: 14px; border-radius: 16px 16px 6px 6px; background: var(--white); overflow: hidden; }
 .device__screen img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
 .device__base { height: 12px; margin: 0 -5.5%; background: var(--plum-soft); border-radius: 0 0 14px 14px; }
 .device__base::before { content: ""; display: block; width: 18%; height: 5px; margin: 0 auto; background: var(--plum); border-radius: 0 0 6px 6px; }
@@ -198,11 +198,22 @@ h3 { font-weight: 600; font-size: 19px; line-height: 1.3; margin: 0 0 8px; }
 .problem h3 { margin: 0; }
 
 /* ---------- 5. Cara Kerja (plum) ---------- */
-.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-.step { background: var(--plum-soft); border-radius: var(--radius-card); padding: 24px; }
-.step h3 { color: var(--white); margin-bottom: 8px; }
 .step__num { display: block; color: var(--mint); font-size: 30px; line-height: 1; margin-bottom: 16px; }
-@media (min-width: 768px) { .steps--3 { grid-template-columns: repeat(3, 1fr); gap: 24px; } .step { padding: 32px; } }
+
+/* Langkah dengan screenshot: teks dan gambar berselang-seling di desktop */
+.howto { list-style: none; margin: 0; padding: 0; display: grid; gap: 56px; }
+.howto__step { display: grid; gap: 24px; align-items: center; }
+.howto__text h3 { color: var(--white); font-size: 22px; margin-bottom: 12px; }
+.howto__text p { max-width: 46ch; }
+.howto__shot { margin: 0; border-radius: var(--radius-card); overflow: hidden; background: var(--white); border: 1px solid var(--on-plum-line); box-shadow: 0 0 0 6px var(--plum-soft); }
+.howto__shot img { width: 100%; height: auto; }
+@media (min-width: 900px) {
+  .howto { gap: 96px; }
+  .howto__step { grid-template-columns: 1fr 1.45fr; gap: 64px; }
+  .howto__step:nth-child(even) { grid-template-columns: 1.45fr 1fr; }
+  .howto__step:nth-child(even) .howto__text { order: 2; }
+  .howto__text h3 { font-size: 26px; }
+}
 
 /* ---------- 6. Perbandingan prompt ---------- */
 .prompt-compare { display: grid; gap: 16px; align-items: stretch; }
@@ -242,6 +253,21 @@ h3 { font-weight: 600; font-size: 19px; line-height: 1.3; margin: 0 0 8px; }
 .tab-card h3 { font-size: 18px; }
 .tab-card p { color: var(--body); font-size: 15px; margin: 0; }
 .tab-card__count { font-size: 13px; font-weight: 600; color: var(--mint-deep); margin-bottom: 8px; }
+
+/* Preview tab worksheet (ala tab Google Sheets) */
+.tabview { margin-bottom: 48px; }
+.tabview__tabs { display: flex; gap: 4px; overflow-x: auto; border-bottom: 1px solid var(--line); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.tabview__tabs::-webkit-scrollbar { display: none; }
+.tabview__tab { flex-shrink: 0; padding: 12px 16px; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; background: transparent; font: 600 15px/1.2 var(--sans); color: var(--body); cursor: pointer; transition: color .2s ease, border-color .2s ease; }
+.tabview__tab:hover { color: var(--plum); }
+.tabview__tab[aria-selected="true"] { color: var(--mint-deep); border-bottom-color: var(--mint-deep); }
+.tabview__panel { margin: 20px 0 0; }
+.js .tabview__panel:not(.is-active) { display: none; }
+.tabview__shot { border: 1px solid var(--line); border-radius: var(--radius-card); overflow: hidden; background: var(--white); }
+.tabview__shot a, .howto__shot a { display: block; cursor: zoom-in; }
+.tabview__shot img { width: 100%; height: auto; }
+.tabview__panel figcaption { margin-top: 12px; max-width: 68ch; font-size: 15px; color: var(--body); }
+.tabview__note { margin: 8px 0 0; font-size: 13px; color: var(--body); }
 
 /* ---------- 9. Harga ---------- */
 .price-card { display: grid; gap: 32px; max-width: 1000px; border: 2px solid var(--plum); }
