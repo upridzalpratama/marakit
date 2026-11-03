@@ -9,9 +9,7 @@
     demoUrl: "", // GANTI: link video demo (YouTube, Google Drive, atau file .mp4). Selama kosong, modal menampilkan placeholder.
     social: {
       instagram: "",        // GANTI: Instagram Marakit (footer). Link disembunyikan selama kosong.
-      tiktok: "",           // GANTI: TikTok Marakit (footer).
-      creatorInstagram: "", // GANTI: Instagram Ridzal (section Tentang Pembuat).
-      creatorTiktok: ""     // GANTI: TikTok Ridzal.
+      tiktok: ""            // GANTI: TikTok Marakit (footer).
     },
     // Testimoni: tampil hanya kalau showTestimonials true DAN ada isinya. Hanya testimoni asli.
     // Contoh format: { quote: "...", name: "...", business: "..." }
@@ -142,9 +140,6 @@
     if (url) { el.setAttribute("href", url); return; }
     var item = el.closest("li") || el;
     item.hidden = true;
-  });
-  document.querySelectorAll(".about__links").forEach(function (box) {
-    if (!box.querySelector("a[data-social]:not([hidden])")) box.hidden = true;
   });
 
   /* ---------- Modal demo ---------- */
