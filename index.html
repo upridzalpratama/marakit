@@ -126,11 +126,11 @@
           </ul>
         </div>
 
-        <!-- GANTI: taruh screenshot di assets/worksheet-preview.png (rasio 16:10). Selama file belum ada, placeholder di bawah yang tampil. -->
+        <!-- Screenshot tab Jalur Kamu. Placeholder di bawahnya hanya tampil kalau gambar gagal dimuat. -->
         <div class="hero__visual">
           <div class="device">
             <div class="device__screen">
-              <img src="assets/worksheet-preview.png" alt="Tampilan AI Marketing Worksheet di Google Sheets" width="1600" height="1000" onerror="this.remove()">
+              <img src="assets/steps/jalur-kamu.webp" alt="Tab Jalur Kamu di Google Sheets, berisi prompt yang sudah terisi data bisnis dan siap di-copy" width="1400" height="797" fetchpriority="high" onerror="this.remove()">
               <div class="device__placeholder" aria-hidden="true"><span>SCREENSHOT WORKSHEET</span></div>
             </div>
             <div class="device__base" aria-hidden="true"></div>
@@ -168,21 +168,39 @@
         <header class="section__head">
           <h2>Tiga langkah, dari kosong sampai siap posting.</h2>
         </header>
-        <ol class="steps steps--3">
-          <li class="step">
-            <span class="step__num mono">01</span>
-            <h3>Isi profil bisnis sekali.</h3>
-            <p>Bingung? AI akan mewawancaraimu satu per satu.</p>
+        <ol class="howto">
+          <li class="howto__step">
+            <div class="howto__text">
+              <span class="step__num mono">01</span>
+              <h3>Isi profil bisnis selengkap mungkin.</h3>
+              <p>Nama usaha, produk, harga, target pelanggan, sampai keunggulanmu dibanding kompetitor. Cukup sekali, karena semua prompt mengambil data dari tab ini.</p>
+              <p>Bingung mengisinya? Ada prompt khusus yang mewawancaraimu satu per satu.</p>
+            </div>
+            <figure class="howto__shot">
+              <img src="assets/steps/profil-bisnis.webp" alt="Tab Profil Bisnis: kolom nama bisnis, kategori usaha, produk, rentang harga, target pelanggan, dan keunggulan" width="781" height="458" loading="lazy">
+            </figure>
           </li>
-          <li class="step">
-            <span class="step__num mono">02</span>
-            <h3>Pilih jalur.</h3>
-            <p>Baru mau mulai, sudah jalan tapi belum online, atau sudah aktif online.</p>
+          <li class="howto__step">
+            <div class="howto__text">
+              <span class="step__num mono">02</span>
+              <h3>Pilih jalur sesuai kondisi usahamu.</h3>
+              <p>Baru mau mulai, sudah jalan tapi belum online, atau sudah aktif online. Pilih satu, dan lima prompt terpenting untuk kondisimu langsung muncul.</p>
+              <p>Promptnya sudah terisi data bisnismu. Tinggal copy, tempel ke ChatGPT, Claude, atau Gemini, lalu pakai hasilnya.</p>
+            </div>
+            <figure class="howto__shot">
+              <img src="assets/steps/jalur-kamu.webp" alt="Tab Jalur Kamu: pilihan kondisi usaha dan daftar prompt siap copy yang sudah terisi data bisnis" width="1400" height="797" loading="lazy">
+            </figure>
           </li>
-          <li class="step">
-            <span class="step__num mono">03</span>
-            <h3>Salin, tempel, pakai.</h3>
-            <p>Salin prompt, tempel ke AI, dan pakai hasilnya hari itu juga.</p>
+          <li class="howto__step">
+            <div class="howto__text">
+              <span class="step__num mono">03</span>
+              <h3>Jalankan checklist sampai tuntas.</h3>
+              <p>Checklist Persiapan menunjukkan apa yang wajib disiapkan lebih dulu, dari akun WhatsApp Business sampai 10 foto produk yang layak tampil.</p>
+              <p>Progresmu terhitung otomatis sesuai jalur, jadi kamu tahu persis apa yang belum dan tidak ada yang terlewat.</p>
+            </div>
+            <figure class="howto__shot">
+              <img src="assets/steps/checklist.webp" alt="Tab Checklist Persiapan: progres sesuai jalur, jumlah item wajib yang selesai, dan daftar persiapan per fase" width="1400" height="794" loading="lazy">
+            </figure>
           </li>
         </ol>
       </div>

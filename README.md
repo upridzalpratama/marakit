@@ -23,15 +23,15 @@ Semua di `js/main.js`, objek `CONFIG`:
 
 | Kunci | Isi | Kalau masih kosong |
 |---|---|---|
-| `lynkUrl` | URL produk di Lynk.id | Tombol beli membuka WhatsApp dengan pesan "mau beli AI Marketing Worksheet" |
+| `lynkUrl` | Halaman checkout Lynk.id (sudah diisi: `lynk.id/upridzal/17vdrmmmrpx4/checkout`) | Kalau dikosongkan, tombol beli membuka WhatsApp dengan pesan "mau beli AI Marketing Worksheet" |
 | `demoUrl` | Video demo 60 detik (YouTube, Google Drive, .mp4, atau gambar) | Modal demo menampilkan placeholder "VIDEO DEMO 60 DETIK" |
 | `social.instagram`, `social.tiktok` | Akun Marakit (footer) | Link disembunyikan |
 | `social.creatorInstagram`, `social.creatorTiktok` | Akun Ridzal (Tentang Pembuat) | Link disembunyikan |
 | `ga4Id`, `metaPixelId`, `clarityId` | ID tracking | Script tidak dimuat |
 
-Gambar, cukup taruh file di path ini (placeholder otomatis hilang):
-- `assets/worksheet-preview.png`: screenshot worksheet, rasio 16:10, tampil di frame laptop di hero.
-- `assets/ridzal.jpg`: foto pembuat, potret 4:5.
+Gambar:
+- `assets/steps/`: screenshot tab Profil Bisnis, Jalur Kamu, dan Checklist Persiapan (WebP). Dipakai di section Cara Kerja; Jalur Kamu juga tampil di frame laptop di hero. Ganti file dengan nama yang sama untuk memperbarui.
+- `assets/ridzal.jpg`: foto pembuat, potret 4:5. Belum ada; selama kosong, placeholder yang tampil.
 
 Konten yang ditandai `GANTI` di `index.html`:
 - FAQ "Bisa refund?" masih disembunyikan (`hidden`) sampai kebijakan refund ditulis. Tambahkan juga ke FAQPage JSON-LD di `<head>`.

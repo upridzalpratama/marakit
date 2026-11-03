@@ -5,7 +5,7 @@
   // Isi semua nilai ini sebelum launch. Nilai kosong aman: lihat catatan di tiap baris.
   var CONFIG = {
     whatsappNumber: "6281220694447", // format internasional tanpa +
-    lynkUrl: "", // GANTI: URL produk di Lynk.id. Selama kosong, tombol beli membuka WhatsApp.
+    lynkUrl: "https://lynk.id/upridzal/17vdrmmmrpx4/checkout", // halaman checkout Lynk.id. Kalau dikosongkan, tombol beli membuka WhatsApp.
     demoUrl: "", // GANTI: link video demo (YouTube, Google Drive, atau file .mp4). Selama kosong, modal menampilkan placeholder.
     social: {
       instagram: "",        // GANTI: Instagram Marakit (footer). Link disembunyikan selama kosong.
