@@ -30,7 +30,7 @@ Semua di `js/main.js`, objek `CONFIG`:
 | `ga4Id`, `metaPixelId`, `clarityId` | ID tracking | Script tidak dimuat |
 
 Gambar:
-- `assets/steps/`: screenshot tab Profil Bisnis, Jalur Kamu, dan Checklist Persiapan (WebP). Dipakai di section Cara Kerja; Jalur Kamu juga tampil di frame laptop di hero. Ganti file dengan nama yang sama untuk memperbarui.
+- `assets/steps/`: screenshot tab worksheet (WebP, lebar 1400px). Profil Bisnis, Jalur Kamu, dan Checklist Persiapan dipakai di section Cara Kerja (Jalur Kamu juga di frame laptop hero). Prompt Otomatis, Kalender Konten, Tracker Iklan, dan Tracker WhatsApp dipakai di preview bertab di section Isi Produk. Ganti file dengan nama yang sama untuk memperbarui. Semua screenshot bisa diketuk untuk dibuka ukuran penuh.
 - `assets/ridzal.jpg`: foto pembuat, potret 4:5. Belum ada; selama kosong, placeholder yang tampil.
 
 Konten yang ditandai `GANTI` di `index.html`:
