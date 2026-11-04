@@ -308,6 +308,22 @@ h3 { font-weight: 600; font-size: 19px; line-height: 1.3; margin: 0 0 8px; }
 .product__name { font-size: 19px; opacity: .8; }
 .product__desc { color: var(--body); opacity: .8; flex: 1; margin-bottom: 24px; }
 
+/* Jenjang level produk */
+.levels { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+@media (min-width: 900px) { .levels { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+.level { display: flex; flex-direction: column; align-items: flex-start; }
+.level__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; margin-bottom: 16px; }
+.level__top .badge { margin: 0; }
+.level__num { font: 800 14px/1 var(--head); letter-spacing: 0.04em; text-transform: uppercase; color: var(--mint-deep); }
+.level.product--soon .level__num { color: var(--body); }
+.level--now { border: 2px solid var(--plum); }
+.level--now:hover { border-color: var(--plum-soft); transform: translateY(-2px); }
+.level--now .product__name { opacity: 1; }
+.level--now .product__desc { opacity: 1; }
+.levels__other { margin: 40px 0 12px; }
+.product--wide { gap: 20px; }
+@media (min-width: 768px) { .product--wide { flex-direction: row; align-items: center; justify-content: space-between; gap: 32px; } .product--wide .product__desc { margin-bottom: 0; } .product--wide .btn { flex-shrink: 0; } }
+
 /* ---------- 14. CTA penutup (plum) ---------- */
 .closing-cta { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .closing-cta h2 { max-width: 20ch; margin-bottom: 32px; }
