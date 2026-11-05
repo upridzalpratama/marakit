@@ -29,7 +29,7 @@ Semua di `js/main.js`, objek `CONFIG`:
 | `ga4Id`, `metaPixelId`, `clarityId` | ID tracking | Script tidak dimuat |
 
 Gambar:
-- `assets/steps/`: screenshot tab worksheet (WebP, lebar 1400px). Profil Bisnis, Jalur Kamu, dan Checklist Persiapan dipakai di section Cara Kerja (Jalur Kamu juga di frame laptop hero). Prompt Otomatis, Kalender Konten, Tracker Iklan, dan Tracker WhatsApp dipakai di preview bertab di section Isi Produk. Ganti file dengan nama yang sama untuk memperbarui. Semua screenshot bisa diketuk untuk dibuka ukuran penuh.
+- `assets/steps/`: screenshot tab worksheet (WebP, lebar 1400px). Profil Bisnis, Jalur Kamu, Checklist Persiapan, dan Prompt Otomatis dipakai di 4 langkah section Cara Kerja (Jalur Kamu juga di frame laptop hero). Kalender Konten, Tracker Iklan, dan Tracker WhatsApp dipakai di preview bertab di section Isi Produk. Ganti file dengan nama yang sama untuk memperbarui. Semua screenshot bisa diketuk untuk dibuka ukuran penuh.
 
 Konten yang ditandai `GANTI` di `index.html`:
 - FAQ "Bisa refund?" masih disembunyikan (`hidden`) sampai kebijakan refund ditulis. Tambahkan juga ke FAQPage JSON-LD di `<head>`.
@@ -60,7 +60,7 @@ UTM dari URL halaman (misalnya `?utm_source=tiktok`) disimpan per sesi, dikirim 
 - Mobile first. Sticky bar "Beli Rp59.000" muncul di mobile setelah melewati hero.
 - Bahasa Indonesia, panggil pembaca "kamu", tanpa em dash, harga ditulis lengkap (Rp59.000).
 - Jangan membuat klaim hasil produk.
-- Section Tentang Pembuat sudah dihapus dari halaman. HTML dan CSS-nya disimpan di `archive/product/tentang-pembuat.html`.
+- Section Tentang Pembuat dan Perbandingan prompt sudah dihapus dari halaman. HTML dan CSS-nya disimpan di `archive/product/`.
 
 ## OG image
 `assets/og-worksheet.png` dibuat dari `tools/og-worksheet.html`. Edit templatenya lalu jalankan `node tools/render-og.mjs` (butuh Playwright).
