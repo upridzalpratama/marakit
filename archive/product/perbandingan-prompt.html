@@ -1,0 +1,50 @@
+<!-- ARSIP: section "Perbandingan prompt" (Prompt biasa vs Prompt dari worksheet) dari landing page AI Marketing Worksheet.
+     Dihapus dari halaman utama atas permintaan. Untuk memakai lagi: tempel blok <section> ke index.html
+     (setelah Cara Kerja), tempel CSS di bawah ke css/styles.css, dan tambahkan ".prompt-compare__punch" ke REVEAL di js/fx.js. -->
+
+    <!-- 6. Perbandingan -->
+    <section class="section section--bone" id="perbandingan">
+      <div class="container">
+        <header class="section__head">
+          <h2>Bedanya ada di perintah yang kamu kirim.</h2>
+        </header>
+        <div class="prompt-compare">
+          <div class="prompt-card">
+            <p class="caption">Prompt biasa</p>
+            <div class="prompt-box prompt-box--plain">buatin caption kopi</div>
+            <p class="prompt-card__note">AI tidak tahu usahamu apa, jualan ke siapa, dan gaya bahasanya bagaimana.</p>
+          </div>
+          <div class="prompt-card prompt-card--worksheet">
+            <p class="caption">Prompt dari worksheet</p>
+            <!-- Contoh ilustrasi. Bagian bertanda adalah data yang otomatis diambil dari tab Profil Bisnis. -->
+            <div class="prompt-box">
+              Kamu adalah copywriter untuk <mark>Kopi Senja</mark>, kedai kopi susu gula aren di Bandung.
+              Target pelanggan: <mark>mahasiswa dan pekerja muda usia 18 sampai 30 tahun</mark>.
+              Keunggulan: <mark>gula aren asli, harga mulai Rp15.000, buka sampai jam 11 malam</mark>.
+              Gaya bahasa: <mark>santai dan akrab, panggil pembaca "kamu"</mark>.
+              Buatkan 3 caption Instagram untuk promo beli 2 gratis 1, maksimal 60 kata, dan akhiri dengan ajakan pesan lewat WhatsApp.
+            </div>
+            <p class="prompt-card__note"><span class="prompt-legend" aria-hidden="true"></span>Terisi otomatis dari profil bisnismu.</p>
+          </div>
+        </div>
+        <p class="prompt-compare__punch">Hasil AI hanya sebagus perintahmu. Worksheet ini yang menyusun perintahnya.</p>
+      </div>
+    </section>
+
+
+<style>
+/* ---------- 6. Perbandingan prompt ---------- */
+.prompt-compare { display: grid; gap: 16px; align-items: stretch; }
+@media (min-width: 768px) { .prompt-compare { grid-template-columns: 1fr 1.6fr; gap: 24px; } }
+.prompt-card { display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--white); }
+.prompt-card--worksheet { border: 2px solid var(--plum); }
+@media (min-width: 768px) { .prompt-card { padding: 32px; } }
+.prompt-box { flex: 1; padding: 16px 18px; border-radius: var(--radius-btn); background: var(--bg); border: 1px solid var(--line); font-size: 15px; line-height: 1.7; color: var(--plum); }
+.prompt-box--plain { flex: 0; color: var(--body); font-style: italic; }
+.prompt-box mark { background: var(--mint-wash); color: var(--plum); padding: 1px 2px; border-radius: 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.prompt-card__note { margin: 16px 0 0; font-size: 14px; color: var(--body); display: flex; align-items: center; gap: 8px; }
+.prompt-legend { width: 14px; height: 14px; border-radius: 3px; background: var(--mint-wash); border: 1px solid var(--mint-deep); flex-shrink: 0; }
+.prompt-compare__punch { margin: 40px 0 0; max-width: 32ch; font: 700 22px/1.35 var(--head); color: var(--plum); }
+@media (min-width: 768px) { .prompt-compare__punch { font-size: 28px; } }
+
+</style>

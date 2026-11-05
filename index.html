@@ -148,7 +148,7 @@
         <div class="grid grid--3">
           <article class="card problem">
             <span class="problem__num">01</span>
-            <h3>Pakai ChatGPT, tapi hasilnya kayak robot dan nggak nyambung dengan usahamu.</h3>
+            <h3>Pakai AI, tapi hasilnya kayak robot dan nggak nyambung dengan usahamu.</h3>
           </article>
           <article class="card problem">
             <span class="problem__num">02</span>
@@ -166,7 +166,7 @@
     <section class="section section--dark" id="cara-kerja">
       <div class="container">
         <header class="section__head">
-          <h2>Tiga langkah, dari kosong sampai siap posting.</h2>
+          <h2>Empat langkah, dari kosong sampai siap posting.</h2>
         </header>
         <ol class="howto">
           <li class="howto__step">
@@ -202,40 +202,22 @@
               <a href="assets/steps/checklist.webp" target="_blank" rel="noopener" aria-label="Buka screenshot ukuran penuh"><img src="assets/steps/checklist.webp" alt="Tab Checklist Persiapan: progres sesuai jalur, jumlah item wajib yang selesai, dan daftar persiapan per fase" width="1400" height="794" loading="lazy"></a>
             </figure>
           </li>
+          <li class="howto__step">
+            <div class="howto__text">
+              <span class="step__num mono">04</span>
+              <h3>Pakai prompt otomatisnya.</h3>
+              <p>Begitu profil terisi, tab Prompt Otomatis langsung berisi 31 prompt yang sudah lengkap dengan data bisnismu, dari riset pelanggan sampai ide konten.</p>
+              <p>Salin dari kolom Prompt siap copy, tempel ke ChatGPT, Claude, atau Gemini. Kolom Kapan dipakai memberi tahu waktu yang tepat untuk tiap prompt.</p>
+            </div>
+            <figure class="howto__shot">
+              <a href="assets/steps/prompt-otomatis.webp" target="_blank" rel="noopener" aria-label="Buka screenshot ukuran penuh"><img src="assets/steps/prompt-otomatis.webp" alt="Tab Prompt Otomatis: daftar prompt per kategori dengan kolom Prompt siap copy yang sudah terisi data bisnis" width="1400" height="800" loading="lazy"></a>
+            </figure>
+          </li>
         </ol>
       </div>
     </section>
 
-    <!-- 6. Perbandingan -->
-    <section class="section section--bone" id="perbandingan">
-      <div class="container">
-        <header class="section__head">
-          <h2>Bedanya ada di perintah yang kamu kirim.</h2>
-        </header>
-        <div class="prompt-compare">
-          <div class="prompt-card">
-            <p class="caption">Prompt biasa</p>
-            <div class="prompt-box prompt-box--plain">buatin caption kopi</div>
-            <p class="prompt-card__note">AI tidak tahu usahamu apa, jualan ke siapa, dan gaya bahasanya bagaimana.</p>
-          </div>
-          <div class="prompt-card prompt-card--worksheet">
-            <p class="caption">Prompt dari worksheet</p>
-            <!-- Contoh ilustrasi. Bagian bertanda adalah data yang otomatis diambil dari tab Profil Bisnis. -->
-            <div class="prompt-box">
-              Kamu adalah copywriter untuk <mark>Kopi Senja</mark>, kedai kopi susu gula aren di Bandung.
-              Target pelanggan: <mark>mahasiswa dan pekerja muda usia 18 sampai 30 tahun</mark>.
-              Keunggulan: <mark>gula aren asli, harga mulai Rp15.000, buka sampai jam 11 malam</mark>.
-              Gaya bahasa: <mark>santai dan akrab, panggil pembaca "kamu"</mark>.
-              Buatkan 3 caption Instagram untuk promo beli 2 gratis 1, maksimal 60 kata, dan akhiri dengan ajakan pesan lewat WhatsApp.
-            </div>
-            <p class="prompt-card__note"><span class="prompt-legend" aria-hidden="true"></span>Terisi otomatis dari profil bisnismu.</p>
-          </div>
-        </div>
-        <p class="prompt-compare__punch">Hasil AI hanya sebagus perintahmu. Worksheet ini yang menyusun perintahnya.</p>
-      </div>
-    </section>
-
-    <!-- 7. Untuk Siapa -->
+    <!-- 6. Untuk Siapa -->
     <section class="section section--white" id="untuk-siapa">
       <div class="container">
         <header class="section__head">
@@ -278,7 +260,7 @@
       </div>
     </section>
 
-    <!-- 8. Isi Produk: satu kartu per tab di Google Sheets -->
+    <!-- 7. Isi Produk: satu kartu per tab di Google Sheets -->
     <!-- GANTI kalau perlu: cek ulang deskripsi singkat tiap tab supaya sesuai isi worksheet. -->
     <section class="section section--bone" id="isi-produk">
       <div class="container">
@@ -290,16 +272,11 @@
         <!-- Preview tab worksheet. Tombol tab mengganti screenshot; tanpa JS semua screenshot tampil berurutan. -->
         <div class="tabview" data-tabview>
           <div class="tabview__tabs" role="tablist" aria-label="Lihat isi tab worksheet">
-            <button type="button" class="tabview__tab" role="tab" id="tvt-prompt" aria-controls="tvp-prompt" aria-selected="true" tabindex="0">Prompt Otomatis</button>
-            <button type="button" class="tabview__tab" role="tab" id="tvt-kalender" aria-controls="tvp-kalender" aria-selected="false" tabindex="-1">Kalender Konten</button>
+            <button type="button" class="tabview__tab" role="tab" id="tvt-kalender" aria-controls="tvp-kalender" aria-selected="true" tabindex="0">Kalender Konten</button>
             <button type="button" class="tabview__tab" role="tab" id="tvt-iklan" aria-controls="tvp-iklan" aria-selected="false" tabindex="-1">Tracker Iklan</button>
             <button type="button" class="tabview__tab" role="tab" id="tvt-wa" aria-controls="tvp-wa" aria-selected="false" tabindex="-1">Tracker WhatsApp</button>
           </div>
-          <figure class="tabview__panel is-active" role="tabpanel" id="tvp-prompt" aria-labelledby="tvt-prompt">
-            <div class="tabview__shot"><a href="assets/steps/prompt-otomatis.webp" target="_blank" rel="noopener" aria-label="Buka screenshot ukuran penuh"><img src="assets/steps/prompt-otomatis.webp" alt="Tab Prompt Otomatis: daftar prompt per kategori dengan kolom Prompt siap copy yang sudah terisi data bisnis" width="1400" height="800" loading="lazy"></a></div>
-            <figcaption>31 prompt yang terisi otomatis dari profilmu. Salin dari kolom Prompt siap copy, tempel ke AI, dan lihat kapan sebaiknya dipakai.</figcaption>
-          </figure>
-          <figure class="tabview__panel" role="tabpanel" id="tvp-kalender" aria-labelledby="tvt-kalender">
+          <figure class="tabview__panel is-active" role="tabpanel" id="tvp-kalender" aria-labelledby="tvt-kalender">
             <div class="tabview__shot"><a href="assets/steps/kalender-konten.webp" target="_blank" rel="noopener" aria-label="Buka screenshot ukuran penuh"><img src="assets/steps/kalender-konten.webp" alt="Tab Kalender Konten: rencana 30 hari dengan kolom pillar, format, hook, ajakan bertindak, dan platform" width="1400" height="795" loading="lazy"></a></div>
             <figcaption>Rencana posting 30 hari. Isi tanggal mulai, tanggal dan hari menyesuaikan sendiri, dan porsi konten jualan terhitung otomatis.</figcaption>
           </figure>
@@ -369,7 +346,7 @@
       </div>
     </section>
 
-    <!-- 9. Harga -->
+    <!-- 8. Harga -->
     <section class="section section--white" id="harga">
       <div class="container">
         <header class="section__head">
@@ -401,7 +378,7 @@
       </div>
     </section>
 
-    <!-- 11. Testimoni: disembunyikan sampai ada testimoni asli (CONFIG.showTestimonials di js/main.js). -->
+    <!-- 9. Testimoni: disembunyikan sampai ada testimoni asli (CONFIG.showTestimonials di js/main.js). -->
     <section class="section section--white" id="testimoni" hidden>
       <div class="container">
         <header class="section__head">
@@ -417,7 +394,7 @@
       </template>
     </section>
 
-    <!-- 12. FAQ -->
+    <!-- 10. FAQ -->
     <section class="section section--bone" id="faq">
       <div class="container container--narrow">
         <header class="section__head">
@@ -458,7 +435,7 @@
       </div>
     </section>
 
-    <!-- 13. Segera Hadir -->
+    <!-- 11. Segera Hadir -->
     <section class="section section--white" id="segera-hadir">
       <div class="container">
         <header class="section__head">
@@ -499,7 +476,7 @@
       </div>
     </section>
 
-    <!-- 14. CTA Penutup -->
+    <!-- 12. CTA Penutup -->
     <section class="section section--dark" id="mulai">
       <div class="container closing-cta">
         <h2>Mulai pakai AI untuk usahamu hari ini.</h2>
@@ -509,7 +486,7 @@
     </section>
   </main>
 
-  <!-- 15. Footer -->
+  <!-- 13. Footer -->
   <footer class="footer">
     <div class="container footer__grid">
       <div>
